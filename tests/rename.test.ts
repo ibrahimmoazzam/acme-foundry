@@ -10,8 +10,8 @@ import {
 const fossil: Identity = {
   name: 'Fossil Design',
   cssPrefix: 'fossil',
-  npmScope: '@fossil-design',
-  repo: 'ibrahimmoazzam/fossil-design',
+  npmScope: '@acme-design',
+  repo: 'ibrahimmoazzam/acme-design',
 };
 const acme: Identity = {
   name: 'Acme Design',
@@ -23,36 +23,36 @@ const toAcme = (text: string) => rename(text, rewrites(fossil, acme));
 
 describe('rename', () => {
   it('renames package names, imports and dependencies', () => {
-    expect(toAcme(`import { Box } from '@fossil-design/react';`)).toBe(
+    expect(toAcme(`import { Box } from '@acme-design/react';`)).toBe(
       `import { Box } from '@acme-design/react';`,
     );
-    expect(toAcme(`"@fossil-design/tokens": "workspace:*"`)).toBe(
+    expect(toAcme(`"@acme-design/tokens": "workspace:*"`)).toBe(
       `"@acme-design/tokens": "workspace:*"`,
     );
-    expect(toAcme(`'@fossil-design/tokens': patch`)).toBe(
+    expect(toAcme(`'@acme-design/tokens': patch`)).toBe(
       `'@acme-design/tokens': patch`,
     );
   });
 
   it('renames custom properties, the bin and the AGENTS.md markers', () => {
-    expect(toAcme('padding: var(--fossil-space-m);')).toBe(
+    expect(toAcme('padding: var(--acme-space-m);')).toBe(
       'padding: var(--acme-space-m);',
     );
-    expect(toAcme('npx fossil-agents-md --check')).toBe(
+    expect(toAcme('npx acme-agents-md --check')).toBe(
       'npx acme-agents-md --check',
     );
-    expect(toAcme('<!-- BEGIN:fossil-design-agent-rules -->')).toBe(
+    expect(toAcme('<!-- BEGIN:acme-design-agent-rules -->')).toBe(
       '<!-- BEGIN:acme-design-agent-rules -->',
     );
   });
 
   it('renames the repository in its URLs', () => {
     expect(
-      toAcme('git+https://github.com/ibrahimmoazzam/fossil-design.git'),
+      toAcme('git+https://github.com/ibrahimmoazzam/acme-design.git'),
     ).toBe('git+https://github.com/acme/acme-design.git');
-    expect(
-      toAcme('https://github.com/ibrahimmoazzam/fossil-design/issues'),
-    ).toBe('https://github.com/acme/acme-design/issues');
+    expect(toAcme('https://github.com/ibrahimmoazzam/acme-design/issues')).toBe(
+      'https://github.com/acme/acme-design/issues',
+    );
   });
 
   it('leaves what only looks like the old names', () => {
@@ -86,8 +86,8 @@ describe('rename', () => {
 describe('repoOf', () => {
   it('reads owner and name from the URLs package.json holds', () => {
     expect(
-      repoOf('git+https://github.com/ibrahimmoazzam/fossil-design.git'),
-    ).toBe('ibrahimmoazzam/fossil-design');
+      repoOf('git+https://github.com/ibrahimmoazzam/acme-design.git'),
+    ).toBe('ibrahimmoazzam/acme-design');
     expect(repoOf('https://github.com/acme/acme-design')).toBe(
       'acme/acme-design',
     );

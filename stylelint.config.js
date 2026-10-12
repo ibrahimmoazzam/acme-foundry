@@ -1,4 +1,4 @@
-import { fossil } from '@fossil-design/stylelint-config';
+import { fossil } from '@acme-design/stylelint-config';
 
 /**
  * Fossil lints its own stylesheets with the config it publishes, so consumers get a tested path.

@@ -33,7 +33,7 @@ export const Heading: Story = {
       name: 'A section heading',
     });
     await expect(getComputedStyle(heading).fontSize).toBe(
-      tokenPx('--fossil-text-heading-l-font-size'),
+      tokenPx('--acme-text-heading-l-font-size'),
     );
     await expect(getComputedStyle(heading).marginBlockStart).toBe('0px');
   },

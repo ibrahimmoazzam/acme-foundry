@@ -1,5 +1,5 @@
 {
-  "name": "Fossil Design",
-  "cssPrefix": "fossil",
-  "npmScope": "@fossil-design"
+  "name": "Acme Design",
+  "cssPrefix": "acme",
+  "npmScope": "@acme-design"
 }

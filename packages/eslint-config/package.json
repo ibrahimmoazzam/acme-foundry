@@ -1,20 +1,20 @@
 {
-  "name": "@fossil-design/eslint-config",
+  "name": "@acme-design/eslint-config",
   "version": "0.1.0",
-  "description": "Shared ESLint config for Fossil Design: layout goes through Box, and every disable says why.",
+  "description": "Shared ESLint config for Acme Design: layout goes through Box, and every disable says why.",
   "keywords": [
     "design-system",
     "eslint",
     "eslintconfig",
     "eslint-config"
   ],
-  "homepage": "https://github.com/ibrahimmoazzam/fossil-design/tree/main/packages/eslint-config#readme",
-  "bugs": "https://github.com/ibrahimmoazzam/fossil-design/issues",
+  "homepage": "https://github.com/ibrahimmoazzam/acme-design/tree/main/packages/eslint-config#readme",
+  "bugs": "https://github.com/ibrahimmoazzam/acme-design/issues",
   "license": "MIT",
   "author": "Ibrahim Moazzam (https://github.com/ibrahimmoazzam)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ibrahimmoazzam/fossil-design.git",
+    "url": "git+https://github.com/ibrahimmoazzam/acme-design.git",
     "directory": "packages/eslint-config"
   },
   "type": "module",

@@ -10,11 +10,11 @@ import pkg from './package.json' with { type: 'json' };
 const external = [
   ...Object.keys(pkg.peerDependencies),
   ...Object.keys(pkg.dependencies).filter(
-    (name) => name !== '@fossil-design/tokens',
+    (name) => name !== '@acme-design/tokens',
   ),
 ];
 
-/** A consumer's `import '@fossil-design/react/style.css'` needs a declaration under TypeScript 6. */
+/** A consumer's `import '@acme-design/react/style.css'` needs a declaration under TypeScript 6. */
 function styleDeclaration(): Plugin {
   return {
     name: 'fossil:style-declaration',

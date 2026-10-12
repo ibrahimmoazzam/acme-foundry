@@ -24,19 +24,19 @@ const rules = async (code: string) =>
 
 describe('tokens only', () => {
   it.each([
-    ['a colour', 'a { color: var(--fossil-color-text-default); }'],
+    ['a colour', 'a { color: var(--acme-color-text-default); }'],
     [
       'two spacing tokens',
-      'a { padding: var(--fossil-space-m) var(--fossil-space-l); }',
+      'a { padding: var(--acme-space-m) var(--acme-space-l); }',
     ],
-    ['a border token', 'a { border: var(--fossil-border-default); }'],
+    ['a border token', 'a { border: var(--acme-border-default); }'],
     [
       'a transition with token durations',
-      'a { transition: color var(--fossil-motion-duration-fast) var(--fossil-motion-easing-standard); }',
+      'a { transition: color var(--acme-motion-duration-fast) var(--acme-motion-easing-standard); }',
     ],
     [
       'a text style',
-      'a { font-size: var(--fossil-text-body-font-size); font-weight: var(--fossil-text-body-font-weight); }',
+      'a { font-size: var(--acme-text-body-font-size); font-weight: var(--acme-text-body-font-weight); }',
     ],
     [
       'plain keywords',
@@ -44,7 +44,7 @@ describe('tokens only', () => {
     ],
     [
       'a knob with a token fallback',
-      'a { gap: var(--carousel-gap, var(--fossil-space-l)); }',
+      'a { gap: var(--carousel-gap, var(--acme-space-l)); }',
     ],
     [
       'a local custom property',
@@ -58,7 +58,7 @@ describe('tokens only', () => {
     ['a hex colour', 'a { color: #fff; }'],
     ['a colour function', 'a { background-color: rgb(0 0 0); }'],
     ['a raw colour inside a shorthand', 'a { border: 1px solid #ccc; }'],
-    ['a raw padding', 'a { padding: var(--fossil-space-m) 4px; }'],
+    ['a raw padding', 'a { padding: var(--acme-space-m) 4px; }'],
     ['a raw gap', 'a { gap: 8px; }'],
     ['a raw radius', 'a { border-radius: 4px; }'],
     ['a raw font size', 'a { font-size: 1rem; }'],
@@ -69,7 +69,7 @@ describe('tokens only', () => {
     ],
     [
       'arithmetic on spacing',
-      'a { padding: calc(var(--fossil-space-m) + var(--fossil-space-xs)); }',
+      'a { padding: calc(var(--acme-space-m) + var(--acme-space-xs)); }',
     ],
   ])('rejects %s', async (_, code) => {
     expect(await rules(code)).toContain(
@@ -81,7 +81,7 @@ describe('tokens only', () => {
 describe('semantic tokens only', () => {
   it('rejects a primitive token', async () => {
     const warnings = await lint(
-      'a { color: var(--fossil-base-color-gray-500); }',
+      'a { color: var(--acme-base-color-gray-500); }',
     );
     expect(warnings).toContainEqual({
       rule: 'declaration-property-value-disallowed-list',
@@ -90,14 +90,14 @@ describe('semantic tokens only', () => {
   });
 
   it('matches whole names, so a semantic token sharing a prefix passes', async () => {
-    expect(
-      await lint('a { border-radius: var(--fossil-radius-pill); }'),
-    ).toEqual([]);
+    expect(await lint('a { border-radius: var(--acme-radius-pill); }')).toEqual(
+      [],
+    );
   });
 
   it('rejects a primitive aliased by a local custom property', async () => {
     expect(
-      await rules('a { --tint: var(--fossil-base-color-blue-600); }'),
+      await rules('a { --tint: var(--acme-base-color-blue-600); }'),
     ).toContain('declaration-property-value-disallowed-list');
   });
 
@@ -114,7 +114,7 @@ describe('semantic tokens only', () => {
 describe('custom properties', () => {
   it('rejects one that exists nowhere', async () => {
     expect(
-      await rules('a { color: var(--fossil-color-text-defualt); }'),
+      await rules('a { color: var(--acme-color-text-defualt); }'),
     ).toContain('csstools/value-no-unknown-custom-properties');
   });
 });
@@ -126,7 +126,7 @@ describe('margins', () => {
 
   it.each([
     'margin: 0 auto',
-    'margin-top: var(--fossil-space-m)',
+    'margin-top: var(--acme-space-m)',
     'margin: -1px',
   ])('rejects %s', async (declaration) => {
     expect(await rules(`a { ${declaration}; }`)).toContain(
@@ -169,13 +169,13 @@ describe('site tokens', () => {
   const siteTokens = join(dir, 'site-tokens.css');
   writeFileSync(
     siteTokens,
-    ':root {\n  --site-color-heart: var(--fossil-base-color-blue-600);\n  --site-color-coffee: #6f4e37;\n}\n',
+    ':root {\n  --site-color-heart: var(--acme-base-color-blue-600);\n  --site-color-coffee: #6f4e37;\n}\n',
   );
   const siteConfig = fossil({ siteTokens: ['site-tokens.css'], root: dir });
 
   it('may alias primitives and hold raw values in its own file', async () => {
     const code =
-      ':root {\n  --site-color-heart: var(--fossil-base-color-blue-600);\n  --site-color-coffee: #6f4e37;\n}\n';
+      ':root {\n  --site-color-heart: var(--acme-base-color-blue-600);\n  --site-color-coffee: #6f4e37;\n}\n';
     expect(await lint(code, { config: siteConfig, file: siteTokens })).toEqual(
       [],
     );

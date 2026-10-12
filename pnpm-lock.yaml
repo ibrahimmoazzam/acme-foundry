@@ -172,6 +172,12 @@ importers:
 
   .:
     devDependencies:
+      '@acme-design/eslint-config':
+        specifier: workspace:*
+        version: link:packages/eslint-config
+      '@acme-design/stylelint-config':
+        specifier: workspace:*
+        version: link:packages/stylelint-config
       '@arethetypeswrong/cli':
         specifier: ^0.18.5
         version: 0.18.5
@@ -181,12 +187,6 @@ importers:
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.12.0(supports-color@10.2.2))
-      '@fossil-design/eslint-config':
-        specifier: workspace:*
-        version: link:packages/eslint-config
-      '@fossil-design/stylelint-config':
-        specifier: workspace:*
-        version: link:packages/stylelint-config
       '@types/node':
         specifier: ^22.20.4
         version: 22.20.4
@@ -245,14 +245,14 @@ importers:
 
   packages/react:
     dependencies:
+      '@acme-design/tokens':
+        specifier: workspace:^
+        version: link:../tokens
       '@floating-ui/react':
         specifier: ^0.27.20
         version: 0.27.20(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      '@fossil-design/tokens':
-        specifier: workspace:^
-        version: link:../tokens
     devDependencies:
-      '@fossil-design/stylelint-config':
+      '@acme-design/stylelint-config':
         specifier: workspace:*
         version: link:../stylelint-config
       '@material-symbols/svg-400':
@@ -309,7 +309,7 @@ importers:
 
   packages/stylelint-config:
     dependencies:
-      '@fossil-design/tokens':
+      '@acme-design/tokens':
         specifier: workspace:^
         version: link:../tokens
       stylelint-declaration-strict-value:

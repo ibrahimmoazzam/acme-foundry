@@ -3,15 +3,15 @@
   composes: surface from '../Floating/floating.module.css';
   display: flex;
   align-items: center;
-  gap: var(--fossil-space-2xs);
-  padding-block: var(--fossil-space-xs);
-  padding-inline: var(--fossil-space-s);
-  border-radius: var(--fossil-radius-compact);
-  font-family: var(--fossil-font-family-mono);
-  font-size: var(--fossil-text-fine-font-size);
-  font-weight: var(--fossil-text-fine-font-weight);
-  letter-spacing: var(--fossil-text-fine-letter-spacing);
-  line-height: var(--fossil-text-fine-line-height);
+  gap: var(--acme-space-2xs);
+  padding-block: var(--acme-space-xs);
+  padding-inline: var(--acme-space-s);
+  border-radius: var(--acme-radius-compact);
+  font-family: var(--acme-font-family-mono);
+  font-size: var(--acme-text-fine-font-size);
+  font-weight: var(--acme-text-fine-font-weight);
+  letter-spacing: var(--acme-text-fine-letter-spacing);
+  line-height: var(--acme-text-fine-line-height);
 }
 
 .arrow {

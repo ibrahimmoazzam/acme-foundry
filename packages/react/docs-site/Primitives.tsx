@@ -1,4 +1,4 @@
-import tokensFile from '@fossil-design/tokens/tokens.json';
+import tokensFile from '@acme-design/tokens/tokens.json';
 import type { ReactNode } from 'react';
 import { Box, Stack, Text } from '../src/index.ts';
 import { Callout } from './Callout.tsx';
@@ -455,7 +455,7 @@ export function Primitives() {
       <Callout tone="warning">
         <strong>For looking, not for using.</strong> Code and designs take
         semantic tokens only; Stylelint rejects a{' '}
-        <code className={styles.code}>--fossil-base-…</code> property. This page
+        <code className={styles.code}>--acme-base-…</code> property. This page
         isn’t in the docs agents read.
       </Callout>
 

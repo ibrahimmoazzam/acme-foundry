@@ -9,7 +9,7 @@ import {
   Stack,
   Tabs,
   Text,
-} from '@fossil-design/react';
+} from '@acme-design/react';
 import { DetailsModal } from './DetailsModal';
 
 /** A Server Component: Fossil's server-safe components render here, and its client ones hydrate. */

@@ -1,4 +1,4 @@
-import fossil from '@fossil-design/eslint-config';
+import fossil from '@acme-design/eslint-config';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
