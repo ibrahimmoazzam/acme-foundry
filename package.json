@@ -3,7 +3,7 @@
   "private": true,
   "description": "Acme Design: an open-source agentic design system. Tokens in git flow into CSS, typed React components, Figma variables and lint configs that keep generated UI on-system.",
   "license": "MIT",
-  "author": "Ibrahim Moazzam (https://github.com/ibrahimmoazzam)",
+  "author": "Acme Corporation (https://github.com/ibrahimmoazzam/acme-design)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ibrahimmoazzam/acme-design.git"
