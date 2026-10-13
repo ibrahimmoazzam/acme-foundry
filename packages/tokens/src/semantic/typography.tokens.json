@@ -3,15 +3,15 @@
     "family": {
       "$type": "fontFamily",
       "heading": {
-        "$value": "{base.font.family.space-grotesk}",
+        "$value": "{base.font.family.sora}",
         "$description": "Headings. An app can point this at its own face; the portfolio uses Roobert."
       },
       "body": {
-        "$value": "{base.font.family.figtree}",
+        "$value": "{base.font.family.inter}",
         "$description": "Body text."
       },
       "mono": {
-        "$value": "{base.font.family.space-mono}",
+        "$value": "{base.font.family.ibm-plex-mono}",
         "$description": "Labels and code. An app can point this at its own face; the portfolio uses Roobert Mono."
       }
     },

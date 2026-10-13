@@ -225,16 +225,16 @@ Each text style is five custom properties. Set all five, and never the `font` sh
 | `--acme-color-background-veil` | A fill over images and video, such as a clip's play button. The same in both modes, because the footage is. |
 | `--acme-color-text-default` | Body text. Contrast in light / dark: 17.59:1 / 18.16:1 on `color.background.page`, 19.15:1 / 17.36:1 on `color.background.surface`. Needs 4.5:1. |
 | `--acme-color-text-muted` | Secondary text. Contrast in light / dark: 7.38:1 / 12.69:1 on `color.background.page`, 8.03:1 / 12.14:1 on `color.background.surface`. Needs 4.5:1. |
-| `--acme-color-text-on-accent` | Text and icons on an accent fill. Contrast in light / dark: 5.91:1 / 7.69:1 on `color.accent.default`. Needs 4.5:1. |
-| `--acme-color-text-on-highlight` | Text and icons on a highlight fill. Contrast in light / dark: 5.19:1 / 13.04:1 on `color.highlight.default`. Needs 4.5:1. |
+| `--acme-color-text-on-accent` | Text and icons on an accent fill. Contrast in light / dark: 6.62:1 / 9.92:1 on `color.accent.default`. Needs 4.5:1. |
+| `--acme-color-text-on-highlight` | Text and icons on a highlight fill. Contrast in light / dark: 6.04:1 / 13.04:1 on `color.highlight.default`. Needs 4.5:1. |
 | `--acme-color-text-on-veil` | Text and icons on the veil, in both modes. Contrast in light / dark: 5.74:1 / 5.74:1 on `color.background.veil`. Needs 4.5:1. |
 | `--acme-color-border-default` | A quiet container edge, meant to sit against a fill. Too faint to stand alone as a line. |
 | `--acme-color-border-strong` | A standalone rule or tick. Contrast in light / dark: 3.57:1 / 4.96:1 on `color.background.page`, 3.89:1 / 4.74:1 on `color.background.surface`. Needs 3:1. |
 | `--acme-color-border-hover` | A control's edge on hover. Contrast in light / dark: 7.38:1 / 12.69:1 on `color.background.page`, 8.03:1 / 12.14:1 on `color.background.surface`. Needs 3:1. |
-| `--acme-color-border-selected` | The edge of the current or selected item. Contrast in light / dark: 4.77:1 / 13.15:1 on `color.background.page`, 5.19:1 / 12.57:1 on `color.background.surface`. Needs 3:1. |
-| `--acme-color-accent-default` | Links and primary actions. Contrast in light / dark: 5.42:1 / 7.76:1 on `color.background.page`, 5.91:1 / 7.42:1 on `color.background.surface`. Needs 4.5:1. |
-| `--acme-color-highlight-default` | Small marks that should stand out: the current page, the caret, the selected tab. Contrast in light / dark: 4.77:1 / 13.15:1 on `color.background.page`, 5.19:1 / 12.57:1 on `color.background.surface`. Needs 4.5:1. |
-| `--acme-color-focus-ring` | The focus indicator. Contrast in light / dark: 4.77:1 / 13.15:1 on `color.background.page`, 5.19:1 / 12.57:1 on `color.background.surface`. Needs 3:1. |
+| `--acme-color-border-selected` | The edge of the current or selected item. Contrast in light / dark: 5.55:1 / 13.15:1 on `color.background.page`, 6.04:1 / 12.57:1 on `color.background.surface`. Needs 3:1. |
+| `--acme-color-accent-default` | Links and primary actions. Contrast in light / dark: 6.08:1 / 10.00:1 on `color.background.page`, 6.62:1 / 9.56:1 on `color.background.surface`. Needs 4.5:1. |
+| `--acme-color-highlight-default` | Small marks that should stand out: the current page, the caret, the selected tab. Contrast in light / dark: 5.55:1 / 13.15:1 on `color.background.page`, 6.04:1 / 12.57:1 on `color.background.surface`. Needs 4.5:1. |
+| `--acme-color-focus-ring` | The focus indicator. Contrast in light / dark: 5.55:1 / 13.15:1 on `color.background.page`, 6.04:1 / 12.57:1 on `color.background.surface`. Needs 3:1. |
 | `--acme-color-selection-background` | Selected text. The selected text itself takes highlight.default. |
 | `--acme-color-shadow-default` | The colour of every shadow. |
 

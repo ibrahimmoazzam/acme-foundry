@@ -231,12 +231,12 @@
     },
     "accent": {
       "default": {
-        "$value": "{base.color.blue.600}",
+        "$value": "{base.color.green.600}",
         "$description": "Links and primary actions.",
         "$extensions": {
           "com.ibrahimmoazzam.fossil": {
             "modes": {
-              "dark": "{base.color.blue.400}"
+              "dark": "{base.color.green.400}"
             },
             "contrast": {
               "against": [
@@ -251,7 +251,7 @@
     },
     "highlight": {
       "default": {
-        "$value": "{base.color.azure.600}",
+        "$value": "{base.color.teal.600}",
         "$description": "Small marks that should stand out: the current page, the caret, the selected tab.",
         "$extensions": {
           "com.ibrahimmoazzam.fossil": {
@@ -288,7 +288,7 @@
     },
     "selection": {
       "background": {
-        "$value": "{base.color.azure.100}",
+        "$value": "{base.color.teal.100}",
         "$description": "Selected text. The selected text itself takes highlight.default.",
         "$extensions": {
           "com.ibrahimmoazzam.fossil": {

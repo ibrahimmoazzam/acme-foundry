@@ -11,7 +11,7 @@ Check each step once per file, and skip one that's already done.
 {{name}} doesn't bundle its fonts. The text styles use {{fonts}}, which load from Google Fonts. Put these lines first in `src/index.css`, in this order. An `@import` after any other rule is ignored:
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Space+Grotesk:wght@700&family=Space+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@700&family=IBM+Plex+Mono:wght@400&display=swap');
 @import '{{package}}/style.css';
 @import 'tailwindcss';
 ```

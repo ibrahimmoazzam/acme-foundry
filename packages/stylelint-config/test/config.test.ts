@@ -97,7 +97,7 @@ describe('semantic tokens only', () => {
 
   it('rejects a primitive aliased by a local custom property', async () => {
     expect(
-      await rules('a { --tint: var(--acme-base-color-blue-600); }'),
+      await rules('a { --tint: var(--acme-base-color-green-600); }'),
     ).toContain('declaration-property-value-disallowed-list');
   });
 
@@ -169,13 +169,13 @@ describe('site tokens', () => {
   const siteTokens = join(dir, 'site-tokens.css');
   writeFileSync(
     siteTokens,
-    ':root {\n  --site-color-heart: var(--acme-base-color-blue-600);\n  --site-color-coffee: #6f4e37;\n}\n',
+    ':root {\n  --site-color-heart: var(--acme-base-color-green-600);\n  --site-color-coffee: #6f4e37;\n}\n',
   );
   const siteConfig = fossil({ siteTokens: ['site-tokens.css'], root: dir });
 
   it('may alias primitives and hold raw values in its own file', async () => {
     const code =
-      ':root {\n  --site-color-heart: var(--acme-base-color-blue-600);\n  --site-color-coffee: #6f4e37;\n}\n';
+      ':root {\n  --site-color-heart: var(--acme-base-color-green-600);\n  --site-color-coffee: #6f4e37;\n}\n';
     expect(await lint(code, { config: siteConfig, file: siteTokens })).toEqual(
       [],
     );

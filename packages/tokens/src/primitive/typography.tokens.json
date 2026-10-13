@@ -3,16 +3,16 @@
     "font": {
       "family": {
         "$type": "fontFamily",
-        "figtree": {
-          "$value": ["Figtree", "system-ui", "sans-serif"]
+        "inter": {
+          "$value": ["Inter", "system-ui", "sans-serif"]
         },
-        "space-grotesk": {
-          "$value": ["Space Grotesk", "system-ui", "sans-serif"],
-          "$description": "The reference brand's heading face, an open replacement for Roobert."
+        "sora": {
+          "$value": ["Sora", "system-ui", "sans-serif"],
+          "$description": "Acme's heading face."
         },
-        "space-mono": {
-          "$value": ["Space Mono", "ui-monospace", "monospace"],
-          "$description": "The reference brand's label face, an open replacement for Roobert Mono."
+        "ibm-plex-mono": {
+          "$value": ["IBM Plex Mono", "ui-monospace", "monospace"],
+          "$description": "Acme's label face."
         }
       },
       "size": {
