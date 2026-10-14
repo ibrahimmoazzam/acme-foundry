@@ -1,4 +1,4 @@
-import { tokenKeys } from '@acme-design/tokens';
+import { tokenKeys } from '@acme-foundry/tokens';
 import { describe, expect, it } from 'vitest';
 import { boxVariants, surfaceTokens } from './components/Box/variants.ts';
 import { textVariants } from './components/Text/Text.tsx';

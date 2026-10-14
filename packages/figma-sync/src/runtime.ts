@@ -167,8 +167,7 @@ export function setStamp(node: Stamped, value: string, key = 'path'): void {
 }
 
 export function known<T>(value: T | undefined, what: string): T {
-  if (value === undefined)
-    throw new Error(`The sync lost track of ${what}.`);
+  if (value === undefined) throw new Error(`The sync lost track of ${what}.`);
   return value;
 }
 

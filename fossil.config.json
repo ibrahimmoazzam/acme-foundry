@@ -1,5 +1,5 @@
 {
-  "name": "Acme Design",
+  "name": "Acme Foundry",
   "cssPrefix": "acme",
-  "npmScope": "@acme-design"
+  "npmScope": "@acme-foundry"
 }

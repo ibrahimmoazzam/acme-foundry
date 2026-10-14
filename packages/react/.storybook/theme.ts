@@ -1,4 +1,4 @@
-import tokensFile from '@acme-design/tokens/tokens.json';
+import tokensFile from '@acme-foundry/tokens/tokens.json';
 import fossilConfig from '../../../fossil.config.json' with { type: 'json' };
 import { create, type ThemeVars } from 'storybook/theming';
 import { githubMark, repo, version } from '../docs-site/repo.ts';

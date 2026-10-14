@@ -1,6 +1,6 @@
 import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
-import lintLists from '@acme-design/tokens/lint.json' with { type: 'json' };
+import lintLists from '@acme-foundry/tokens/lint.json' with { type: 'json' };
 import type { Config } from 'stylelint';
 
 const require = createRequire(import.meta.url);
@@ -117,7 +117,7 @@ export function fossil({
         true,
         {
           importFrom: [
-            require.resolve('@acme-design/tokens/tokens.css'),
+            require.resolve('@acme-foundry/tokens/tokens.css'),
             ...siteTokenFiles,
           ],
         },

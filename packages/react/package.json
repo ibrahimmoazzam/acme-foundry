@@ -1,7 +1,7 @@
 {
-  "name": "@acme-design/react",
+  "name": "@acme-foundry/react",
   "version": "0.5.1",
-  "description": "React components for Acme Design, styled only with design tokens and precompiled to plain JavaScript and one stylesheet.",
+  "description": "React components for Acme Foundry, styled only with design tokens and precompiled to plain JavaScript and one stylesheet.",
   "keywords": [
     "design-system",
     "react",
@@ -54,14 +54,14 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.20",
-    "@acme-design/tokens": "workspace:^"
+    "@acme-foundry/tokens": "workspace:^"
   },
   "peerDependencies": {
     "react": "^18.3 || ^19",
     "react-dom": "^18.3 || ^19"
   },
   "devDependencies": {
-    "@acme-design/stylelint-config": "workspace:*",
+    "@acme-foundry/stylelint-config": "workspace:*",
     "@material-symbols/svg-400": "^0.47.6",
     "@storybook/addon-a11y": "^10.6.1",
     "@storybook/addon-docs": "^10.6.1",

@@ -20,7 +20,7 @@ setFrameProperties(resolveMode('system'));
 // Storybook names itself in every tab title, with no option to change it. The site follows
 // ibrahimmoazzam.com instead: "Page | Fossil Design", and the front page says what Fossil is.
 // A fork's pages take its name from fossil.config.json; the front page's title is its own to write.
-const homeTitle = 'Acme Design: Our Product Design System';
+const homeTitle = 'Acme Foundry: Our Product Design System';
 
 function siteTitle(title: string): string {
   if (title === 'Storybook') return homeTitle;

@@ -117,7 +117,7 @@ describe('reading examples from stories', () => {
   const inputs: Inputs = {
     root: '',
     exports: { Thing: {}, Text: {}, Stack: {} },
-    packageName: '@acme-design/react',
+    packageName: '@acme-foundry/react',
   };
   const props: Prop[] = [
     { name: 'tone', type: '"a" | "b"', required: false, description: 'Tone.' },
@@ -152,7 +152,7 @@ export const Default: Story = { tags: ['example'], args: { tone: 'b', children: 
     expect(example).toEqual({
       name: 'Default',
       description: 'The usual case.',
-      code: `import { Thing } from '@acme-design/react';\n\n<Thing label="Close" tone="b">Hello</Thing>`,
+      code: `import { Thing } from '@acme-foundry/react';\n\n<Thing label="Close" tone="b">Hello</Thing>`,
       placeholders: [],
     });
   });
@@ -174,7 +174,7 @@ export const Stateful: Story = {
   },
 };`);
     expect(example?.code).toBe(`import { useState } from 'react';
-import { Stack, Thing } from '@acme-design/react';
+import { Stack, Thing } from '@acme-foundry/react';
 
 function Stateful() {
   const [on, setOn] = useState(false);
@@ -212,7 +212,7 @@ export const Args: Story = { tags: ['example'], render: (args) => <Thing {...arg
 export const Spy: Story = { tags: ['example'], args: { label: fn() } };
 export const Undescribed: Story = { tags: ['example'] };`);
     expect(problems).toEqual([
-      "the example story Helper uses `helper`, which an app doesn't have. Use @acme-design/react's and React's exports, or a module-level constant with a JSDoc comment saying what the app puts there",
+      "the example story Helper uses `helper`, which an app doesn't have. Use @acme-foundry/react's and React's exports, or a module-level constant with a JSDoc comment saying what the app puts there",
       'the example story Args: its render takes args. Write it as an app would, with no args, or drop render and let the args make the example',
       'the example story Spy: its args leave out `label`, which is required. Give the story a render that shows how an app supplies it',
       'the example story Undescribed needs a JSDoc comment saying why an app would do this',
@@ -237,9 +237,9 @@ describe('the docs placeholders', () => {
 
 describe('the AGENTS.md block', () => {
   it('names its markers after the npm scope', () => {
-    expect(blockMarkers('@acme-design')).toEqual({
-      start: '<!-- BEGIN:acme-design-agent-rules -->',
-      end: '<!-- END:acme-design-agent-rules -->',
+    expect(blockMarkers('@acme-foundry')).toEqual({
+      start: '<!-- BEGIN:acme-foundry-agent-rules -->',
+      end: '<!-- END:acme-foundry-agent-rules -->',
     });
   });
 
@@ -311,7 +311,7 @@ describe("the package's docs", () => {
     const inputs: Inputs = {
       root: fileURLToPath(new URL('..', import.meta.url)),
       exports: fossil,
-      packageName: '@acme-design/react',
+      packageName: '@acme-foundry/react',
     };
     const { components, problems } = collect(inputs);
     expect(problems).toEqual([]);

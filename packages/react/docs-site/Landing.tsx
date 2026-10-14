@@ -121,12 +121,12 @@ const pipelines: Pipeline[] = [
         tools: [npm, { icon: StylelintIcon, label: 'Stylelint' }],
         items: [
           {
-            name: '@acme-design/tokens',
+            name: '@acme-foundry/tokens',
             code: true,
             body: 'CSS, JSON and TypeScript.',
           },
           {
-            name: '@acme-design/stylelint-config',
+            name: '@acme-foundry/stylelint-config',
             code: true,
             body: 'Semantic tokens only.',
           },
@@ -166,12 +166,12 @@ const pipelines: Pipeline[] = [
         tools: [npm, { icon: ESLintIcon, label: 'ESLint' }],
         items: [
           {
-            name: '@acme-design/react',
+            name: '@acme-foundry/react',
             code: true,
             body: 'Components, docs for agents and the Make guidelines.',
           },
           {
-            name: '@acme-design/eslint-config',
+            name: '@acme-foundry/eslint-config',
             code: true,
             body: 'Layout through `Box`, and a reason on every disable.',
           },
@@ -231,7 +231,7 @@ const consumers: {
     name: 'Coding agents',
     from: 'Tokens and Components',
     tools: agents,
-    body: 'Build with `@acme-design/react` and the tokens, guided by `AGENTS.md` and the bundled docs. Types and lint reject drift.',
+    body: 'Build with `@acme-foundry/react` and the tokens, guided by `AGENTS.md` and the bundled docs. Types and lint reject drift.',
   },
   {
     name: 'Designers',
@@ -594,7 +594,7 @@ function SectionCard({ page, title, icon, body }: SectionCardProps) {
   );
 }
 
-/** The site's front page, built from Acme Design's own components. */
+/** The site's front page, built from Acme Foundry's own components. */
 export function Landing() {
   return (
     <Stack gap="2xl">
@@ -603,11 +603,11 @@ export function Landing() {
           Acme's product design system
         </Text>
         <Text as="h1" variant="heading-xl">
-          Acme Design
+          Acme Foundry
         </Text>
         <RepoChip />
         <Text variant="prose" tone="muted">
-          Acme Design is an{' '}
+          Acme Foundry is an{' '}
           <strong className={styles.pop}>agentic design system</strong>: a
           design system built for AI agents to stay on-system from design to
           code. Its tokens live in git and flow into CSS, typed React
@@ -655,7 +655,7 @@ export function Landing() {
             ))}
           </Box>
           <Text variant="prose">
-            Acme Design answers the first with context and the second with
+            Acme Foundry answers the first with context and the second with
             constraint. Then it verifies both, so the system itself stays true
             in code and in Figma.
           </Text>
@@ -682,7 +682,7 @@ export function Landing() {
           >
             <Stack gap="m">
               <Text variant="prose">
-                So Acme Design itself stays on-system, in code and in Figma.
+                So Acme Foundry itself stays on-system, in code and in Figma.
               </Text>
               <Points points={checks} />
             </Stack>

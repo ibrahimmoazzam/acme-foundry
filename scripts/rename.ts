@@ -34,7 +34,7 @@ const escape = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 export interface Rewrite {
   /** The old text, which finds the files to rewrite. */
   find: string;
-  /** The old text where it stands alone, so `@acme` doesn't match inside `@acme-design`. */
+  /** The old text where it stands alone, so `@acme` doesn't match inside `@acme-foundry`. */
   pattern: RegExp;
   replacement: string;
 }
@@ -145,7 +145,7 @@ function main() {
   if (problems.length > 0) {
     console.error(problems.join('\n'));
     console.error(
-      'Usage: pnpm rename --name "Acme Design" --prefix acme --scope @acme-design --repo acme/acme-design',
+      'Usage: pnpm rename --name "Acme Design" --prefix acme --scope @acme-foundry --repo acme/acme-design',
     );
     process.exit(1);
   }

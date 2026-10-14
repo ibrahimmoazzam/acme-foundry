@@ -1,7 +1,7 @@
 {
   "name": "fossil-design",
   "private": true,
-  "description": "Acme Design: an open-source agentic design system. Tokens in git flow into CSS, typed React components, Figma variables and lint configs that keep generated UI on-system.",
+  "description": "Acme Foundry: an open-source agentic design system. Tokens in git flow into CSS, typed React components, Figma variables and lint configs that keep generated UI on-system.",
   "license": "MIT",
   "author": "Acme Corporation (https://github.com/ibrahimmoazzam/acme-design)",
   "repository": {
@@ -34,8 +34,8 @@
     "@arethetypeswrong/cli": "^0.18.5",
     "@changesets/cli": "^3.0.3",
     "@eslint/js": "^10.0.1",
-    "@acme-design/eslint-config": "workspace:*",
-    "@acme-design/stylelint-config": "workspace:*",
+    "@acme-foundry/eslint-config": "workspace:*",
+    "@acme-foundry/stylelint-config": "workspace:*",
     "@types/node": "^22.20.4",
     "eslint": "^10.12.0",
     "eslint-plugin-react-hooks": "^7.1.1",

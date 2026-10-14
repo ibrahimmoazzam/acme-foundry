@@ -11,7 +11,7 @@ import {
   Tabs,
   Text,
   Tooltip,
-} from '@acme-design/react';
+} from '@acme-foundry/react';
 import { useState } from 'react';
 import styles from './app.module.css';
 

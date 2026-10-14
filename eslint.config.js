@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import { fossil } from '@acme-design/eslint-config';
+import { fossil } from '@acme-foundry/eslint-config';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import reactHooks from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';

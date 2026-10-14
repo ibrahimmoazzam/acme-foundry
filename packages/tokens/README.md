@@ -1,13 +1,13 @@
-# @acme-design/tokens
+# @acme-foundry/tokens
 
-Design tokens for [Acme Design](https://github.com/ibrahimmoazzam/acme-design), Acme's product design system: CSS custom properties for light and dark mode, metadata for tools and agents, and typed keys for component props.
+Design tokens for [Acme Foundry](https://github.com/ibrahimmoazzam/acme-design), Acme's product design system: CSS custom properties for light and dark mode, metadata for tools and agents, and typed keys for component props.
 
 > **Early release.** Versions `0.x` may rename tokens between minor versions while the taxonomy settles. Renames keep a deprecated alias first, and the release notes list each one.
 
 ## Install
 
 ```sh
-npm install @acme-design/tokens
+npm install @acme-foundry/tokens
 ```
 
 ## Use the custom properties
@@ -15,7 +15,7 @@ npm install @acme-design/tokens
 Import the stylesheet once, then style with the semantic tokens:
 
 ```js
-import '@acme-design/tokens/tokens.css';
+import '@acme-foundry/tokens/tokens.css';
 ```
 
 ```css
@@ -46,7 +46,7 @@ import '@acme-design/tokens/tokens.css';
 ## Use the tokens in TypeScript
 
 ```ts
-import { mediaQueries, tokenKeys, type TokenKey } from '@acme-design/tokens';
+import { mediaQueries, tokenKeys, type TokenKey } from '@acme-foundry/tokens';
 
 type Gap = TokenKey<'space'>; // '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl'
 
@@ -55,16 +55,16 @@ const isTablet = window.matchMedia(mediaQueries.tablet).matches;
 
 Custom properties can't be used in media queries, so the breakpoints are also exported as values and media query strings.
 
-The JSON files come typed: `import tokens from '@acme-design/tokens/tokens.json' with { type: 'json' }` is a `TokensFile`.
+The JSON files come typed: `import tokens from '@acme-foundry/tokens/tokens.json' with { type: 'json' }` is a `TokensFile`.
 
 ## What's inside
 
-| Import                            | Contents                                                                                                                          |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `@acme-design/tokens/tokens.css`  | Every token as a custom property, with dark values                                                                                |
-| `@acme-design/tokens/tokens.json` | Each token's custom property, resolved value, alias, dark value, description and deprecation, keyed by path                       |
-| `@acme-design/tokens/lint.json`   | The primitive and deprecated custom properties, for `@acme-design/stylelint-config`                                               |
-| `@acme-design/tokens`             | `tokenKeys`, `breakpoints` and `mediaQueries`, and the types `TokenKey`, `TokenGroup`, `Breakpoint`, `TokensFile` and `LintLists` |
+| Import                             | Contents                                                                                                                          |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `@acme-foundry/tokens/tokens.css`  | Every token as a custom property, with dark values                                                                                |
+| `@acme-foundry/tokens/tokens.json` | Each token's custom property, resolved value, alias, dark value, description and deprecation, keyed by path                       |
+| `@acme-foundry/tokens/lint.json`   | The primitive and deprecated custom properties, for `@acme-foundry/stylelint-config`                                              |
+| `@acme-foundry/tokens`             | `tokenKeys`, `breakpoints` and `mediaQueries`, and the types `TokenKey`, `TokenGroup`, `Breakpoint`, `TokensFile` and `LintLists` |
 
 The token source is DTCG 2025.10 JSON in the [repository](https://github.com/ibrahimmoazzam/acme-design/tree/main/packages/tokens/src), built with Style Dictionary.
 

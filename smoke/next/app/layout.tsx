@@ -1,4 +1,4 @@
-import '@acme-design/react/style.css';
+import '@acme-foundry/react/style.css';
 import type { ReactNode } from 'react';
 import styles from './layout.module.css';
 

@@ -1,7 +1,7 @@
 {
-  "name": "@acme-design/eslint-config",
+  "name": "@acme-foundry/eslint-config",
   "version": "0.1.0",
-  "description": "Shared ESLint config for Acme Design: layout goes through Box, and every disable says why.",
+  "description": "Shared ESLint config for Acme Foundry: layout goes through Box, and every disable says why.",
   "keywords": [
     "design-system",
     "eslint",

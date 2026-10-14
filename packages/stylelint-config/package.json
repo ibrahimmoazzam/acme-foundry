@@ -1,7 +1,7 @@
 {
-  "name": "@acme-design/stylelint-config",
+  "name": "@acme-foundry/stylelint-config",
   "version": "0.1.4",
-  "description": "Shared Stylelint config for Acme Design: semantic tokens only, no raw values, no margins.",
+  "description": "Shared Stylelint config for Acme Foundry: semantic tokens only, no raw values, no margins.",
   "keywords": [
     "design-system",
     "stylelint",
@@ -36,7 +36,7 @@
     "prepack": "pnpm run build"
   },
   "dependencies": {
-    "@acme-design/tokens": "workspace:^",
+    "@acme-foundry/tokens": "workspace:^",
     "stylelint-declaration-strict-value": "^1.12.1",
     "stylelint-value-no-unknown-custom-properties": "^6.1.1"
   },

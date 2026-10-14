@@ -46,7 +46,7 @@ export interface ModalProps {
   /** The dialog's content, under its header. */
   children: ReactNode;
   /**
-   * Renders the panel yourself, to animate it with a library such as Motion. Acme Design keeps the
+   * Renders the panel yourself, to animate it with a library such as Motion. Acme Foundry keeps the
    * dialog, focus, Escape, the scrim and the scroll lock, and closes the dialog when you call
    * `onExitComplete`.
    */
@@ -60,7 +60,7 @@ export interface ModalProps {
 
 /**
  * A modal dialog on the native `<dialog>`, which provides the focus trap, Escape, an inert page
- * behind and the top layer. Acme Design adds the exit animation, focus on the title when it opens, a
+ * behind and the top layer. Acme Foundry adds the exit animation, focus on the title when it opens, a
  * scroll lock and dismissal by clicking outside.
  *
  * ## When to use
@@ -156,7 +156,7 @@ export function Modal({
     };
   }, [showing]);
 
-  // Acme Design's own panel ends its exit when its transitions do. A rendered panel calls onExitComplete.
+  // Acme Foundry's own panel ends its exit when its transitions do. A rendered panel calls onExitComplete.
   useEffect(() => {
     if (!closing || renderPanel) return;
     return afterTransitions(panelRef.current, exitComplete);

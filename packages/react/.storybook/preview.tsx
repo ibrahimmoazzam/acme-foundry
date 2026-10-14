@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react-vite';
-import '@acme-design/tokens/tokens.css';
+import '@acme-foundry/tokens/tokens.css';
 import { GLOBALS_UPDATED, SET_GLOBALS } from 'storybook/internal/core-events';
 import { addons } from 'storybook/preview-api';
 import { docsComponents } from '../docs-site/headings.tsx';

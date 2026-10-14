@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Modal, Text } from '@acme-design/react';
+import { Button, Modal, Text } from '@acme-foundry/react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
 

@@ -1,7 +1,7 @@
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import lintLists from '@acme-design/tokens/lint.json' with { type: 'json' };
+import lintLists from '@acme-foundry/tokens/lint.json' with { type: 'json' };
 import stylelint from 'stylelint';
 import { afterAll, describe, expect, it } from 'vitest';
 import config, { fossil } from '../src/index.ts';
@@ -100,9 +100,9 @@ describe('semantic tokens only', () => {
   });
 
   it('matches whole names, so a semantic token sharing a prefix passes', async () => {
-    expect(
-      await lint('a { border-radius: var(--acme-radius-pill); }'),
-    ).toEqual([]);
+    expect(await lint('a { border-radius: var(--acme-radius-pill); }')).toEqual(
+      [],
+    );
   });
 
   it('rejects a primitive aliased by a local custom property', async () => {

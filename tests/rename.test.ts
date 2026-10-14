@@ -10,27 +10,27 @@ import {
 const fossil: Identity = {
   name: 'Fossil Design',
   cssPrefix: 'fossil',
-  npmScope: '@acme-design',
+  npmScope: '@acme-foundry',
   repo: 'ibrahimmoazzam/acme-design',
 };
 const acme: Identity = {
   name: 'Acme Design',
   cssPrefix: 'acme',
-  npmScope: '@acme-design',
+  npmScope: '@acme-foundry',
   repo: 'acme/acme-design',
 };
 const toAcme = (text: string) => rename(text, rewrites(fossil, acme));
 
 describe('rename', () => {
   it('renames package names, imports and dependencies', () => {
-    expect(toAcme(`import { Box } from '@acme-design/react';`)).toBe(
-      `import { Box } from '@acme-design/react';`,
+    expect(toAcme(`import { Box } from '@acme-foundry/react';`)).toBe(
+      `import { Box } from '@acme-foundry/react';`,
     );
-    expect(toAcme(`"@acme-design/tokens": "workspace:*"`)).toBe(
-      `"@acme-design/tokens": "workspace:*"`,
+    expect(toAcme(`"@acme-foundry/tokens": "workspace:*"`)).toBe(
+      `"@acme-foundry/tokens": "workspace:*"`,
     );
-    expect(toAcme(`'@acme-design/tokens': patch`)).toBe(
-      `'@acme-design/tokens': patch`,
+    expect(toAcme(`'@acme-foundry/tokens': patch`)).toBe(
+      `'@acme-foundry/tokens': patch`,
     );
   });
 
@@ -41,8 +41,8 @@ describe('rename', () => {
     expect(toAcme('npx acme-agents-md --check')).toBe(
       'npx acme-agents-md --check',
     );
-    expect(toAcme('<!-- BEGIN:acme-design-agent-rules -->')).toBe(
-      '<!-- BEGIN:acme-design-agent-rules -->',
+    expect(toAcme('<!-- BEGIN:acme-foundry-agent-rules -->')).toBe(
+      '<!-- BEGIN:acme-foundry-agent-rules -->',
     );
   });
 
@@ -60,7 +60,7 @@ describe('rename', () => {
       // Names Fossil keeps: the config file, the vendor key, the lint configs' factory.
       'fossil.config.json',
       'com.ibrahimmoazzam.fossil',
-      "import { fossil } from '@acme-design/stylelint-config';",
+      "import { fossil } from '@acme-foundry/stylelint-config';",
       // Longer names that start with the old ones.
       '@fossil-designer/react',
       'my-fossil-agents-md',
@@ -73,7 +73,7 @@ describe('rename', () => {
   it("doesn't match a scope inside a longer one, when the new scope contains the old", () => {
     const longer = rewrites(acme, { ...acme, npmScope: '@acme-design-system' });
     expect(
-      rename('@acme-design/react and @acme-design-system/react', longer),
+      rename('@acme-foundry/react and @acme-design-system/react', longer),
     ).toBe('@acme-design-system/react and @acme-design-system/react');
   });
 
@@ -107,7 +107,7 @@ describe('patterns', () => {
   it('accept what fossil.config.json accepts', () => {
     expect(patterns.cssPrefix.test('acme')).toBe(true);
     expect(patterns.cssPrefix.test('Acme')).toBe(false);
-    expect(patterns.npmScope.test('@acme-design')).toBe(true);
+    expect(patterns.npmScope.test('@acme-foundry')).toBe(true);
     expect(patterns.npmScope.test('acme-design')).toBe(false);
     expect(patterns.repo.test('acme/acme-design')).toBe(true);
     expect(patterns.repo.test('https://github.com/acme/acme-design')).toBe(

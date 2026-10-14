@@ -172,10 +172,10 @@ importers:
 
   .:
     devDependencies:
-      '@acme-design/eslint-config':
+      '@acme-foundry/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
-      '@acme-design/stylelint-config':
+      '@acme-foundry/stylelint-config':
         specifier: workspace:*
         version: link:packages/stylelint-config
       '@arethetypeswrong/cli':
@@ -245,14 +245,14 @@ importers:
 
   packages/react:
     dependencies:
-      '@acme-design/tokens':
+      '@acme-foundry/tokens':
         specifier: workspace:^
         version: link:../tokens
       '@floating-ui/react':
         specifier: ^0.27.20
         version: 0.27.20(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
     devDependencies:
-      '@acme-design/stylelint-config':
+      '@acme-foundry/stylelint-config':
         specifier: workspace:*
         version: link:../stylelint-config
       '@material-symbols/svg-400':
@@ -309,7 +309,7 @@ importers:
 
   packages/stylelint-config:
     dependencies:
-      '@acme-design/tokens':
+      '@acme-foundry/tokens':
         specifier: workspace:^
         version: link:../tokens
       stylelint-declaration-strict-value:

@@ -810,7 +810,9 @@ export async function checkVariant(
             `${at}the text ${n.name}'s line height isn't ${String(t.lineHeight)}%.`,
           );
       } else if (style === undefined)
-        problems.push(`${at}the text ${n.name} has no text style from the library.`);
+        problems.push(
+          `${at}the text ${n.name} has no text style from the library.`,
+        );
       return;
     }
     if (

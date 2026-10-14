@@ -19,7 +19,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { createRequire } from 'node:module';
-import { breakpoints } from '@acme-design/tokens';
+import { breakpoints } from '@acme-foundry/tokens';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
@@ -82,7 +82,7 @@ export interface Inputs {
   root: string;
   /** The package's runtime exports. */
   exports: Record<string, unknown>;
-  /** The package name, such as `@acme-design/react`. */
+  /** The package name, such as `@acme-foundry/react`. */
   packageName: string;
 }
 
@@ -871,7 +871,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 
   const header = `${pkg.name} ${pkg.version}, generated from its source. Matches the installed version.`;
   const tokensDist = dirname(
-    require.resolve('@acme-design/tokens/tokens.json'),
+    require.resolve('@acme-foundry/tokens/tokens.json'),
   );
   const tokens = JSON.parse(
     readFileSync(join(tokensDist, 'tokens.json'), 'utf8'),

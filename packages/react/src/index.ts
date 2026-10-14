@@ -1,4 +1,4 @@
-import '@acme-design/tokens/tokens.css';
+import '@acme-foundry/tokens/tokens.css';
 
 export {
   Box,

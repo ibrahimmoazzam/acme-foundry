@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 import fossilConfig from '../../../fossil.config.json' with { type: 'json' };
-import tokensFile from '@acme-design/tokens/tokens.json';
+import tokensFile from '@acme-foundry/tokens/tokens.json';
 import { onGitHub, sitePage } from './repo.ts';
 
 /** Where a mention links: a URL, and the site page it opens, if it's on this site. */

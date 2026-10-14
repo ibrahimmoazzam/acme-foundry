@@ -110,9 +110,9 @@ function checkAgentsMd(dir: string) {
   expectIncludes(
     'AGENTS.md',
     agents,
-    '<!-- BEGIN:acme-design-agent-rules -->',
+    '<!-- BEGIN:acme-foundry-agent-rules -->',
     '### Components',
-    '<!-- END:acme-design-agent-rules -->',
+    '<!-- END:acme-foundry-agent-rules -->',
   );
   expectIncludes(
     'CLAUDE.md',
@@ -120,13 +120,13 @@ function checkAgentsMd(dir: string) {
     '@AGENTS.md',
   );
 
-  const installed = join(dir, 'node_modules/@acme-design/react');
+  const installed = join(dir, 'node_modules/@acme-foundry/react');
   const guidelines = readFileSync(
     join(installed, 'guidelines/Guidelines.md'),
     'utf8',
   );
   const paths = [agents, guidelines].flatMap((text) => [
-    ...[...text.matchAll(/node_modules\/@acme-design\/react\/[\w./-]*/g)].map(
+    ...[...text.matchAll(/node_modules\/@acme-foundry\/react\/[\w./-]*/g)].map(
       ([path]) => join(dir, path),
     ),
     ...[...text.matchAll(/`(\w+\.md)`/g)]

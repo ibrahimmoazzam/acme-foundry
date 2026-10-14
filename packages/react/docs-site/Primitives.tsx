@@ -1,4 +1,4 @@
-import tokensFile from '@acme-design/tokens/tokens.json';
+import tokensFile from '@acme-foundry/tokens/tokens.json';
 import type { ReactNode } from 'react';
 import { Box, Stack, Text } from '../src/index.ts';
 import { Callout } from './Callout.tsx';

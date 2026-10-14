@@ -1,6 +1,6 @@
-# Acme Design
+# Acme Foundry
 
-[![CI](https://github.com/ibrahimmoazzam/acme-design/actions/workflows/ci.yml/badge.svg)](https://github.com/ibrahimmoazzam/acme-design/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/@acme-design/react?label=%40acme-design%2Freact)](https://www.npmjs.com/package/@acme-design/react) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
+[![CI](https://github.com/ibrahimmoazzam/acme-design/actions/workflows/ci.yml/badge.svg)](https://github.com/ibrahimmoazzam/acme-design/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/@acme-foundry/react?label=%40acme-design%2Freact)](https://www.npmjs.com/package/@acme-foundry/react) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
 Acme's product design system, built so that AI agents stay on-system from design to code. Tokens live in git and flow into CSS, typed React components, Figma variables and a Figma component library generated from code. Shared lint configs, docs bundled into the packages and guidelines for Figma Make keep what coding agents and Make generate on-system.
 
@@ -8,7 +8,7 @@ Acme's product design system, built so that AI agents stay on-system from design
 
 > **Status: early.** The packages are on npm as `0.x`. The token build, the Figma sync, the components, both lint configs and the agent docs are in place.
 
-Acme Design is built on [Fossil Design](https://github.com/ibrahimmoazzam/fossil-design), whose pipeline, components and tooling it keeps. Fossil's [reasoning](https://fossil.ibrahimmoazzam.com/?path=/docs/architecture-key-decisions--docs) explains why the system is shaped this way; this repository holds Acme's brand, tokens and components.
+Acme Foundry is built on [Fossil Design](https://github.com/ibrahimmoazzam/fossil-design), whose pipeline, components and tooling it keeps. Fossil's [reasoning](https://fossil.ibrahimmoazzam.com/?path=/docs/architecture-key-decisions--docs) explains why the system is shaped this way; this repository holds Acme's brand, tokens and components.
 
 ## Why
 
@@ -17,7 +17,7 @@ Coding agents produce off-system UI in two different ways, and most design syste
 1. **The agent doesn't know what exists,** so it invents. The fix is context: token and component metadata the agent can read.
 2. **The agent knows and drifts anyway.** Its training pulls harder than your documentation, so it writes `bg-gray-100` with your tokens in plain view. The fix is constraint: make off-system values impossible to express.
 
-Acme Design does both. The usual approach is to allow any CSS and lint it afterwards. Acme Design closes the surface instead: layout props accept only token keys, styles accept only semantic tokens, and lint covers what remains.
+Acme Foundry does both. The usual approach is to allow any CSS and lint it afterwards. Acme Foundry closes the surface instead: layout props accept only token keys, styles accept only semantic tokens, and lint covers what remains.
 
 ## How it works
 
@@ -31,7 +31,7 @@ Design tokens (DTCG JSON in git, reviewed in pull requests)
            └─▶ Figma component library, generated from code
 ```
 
-| Layer        | What Acme Design does                                                                                                                        |
+| Layer        | What Acme Foundry does                                                                                                                       |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | Context      | An always-on `AGENTS.md` block, component docs bundled in the installed package, guidelines for Figma Make, Figma variables with code syntax |
 | Constraint   | `Box` props typed to tokens, a Stylelint config that allows only semantic tokens, an ESLint rule against raw `<div>`s                        |
@@ -43,17 +43,17 @@ Everything runs on a Figma Professional or Education plan and free tiers elsewhe
 
 ## Packages
 
-| Package                                                        | What it is                                                                  | Version                                                                                                                           |
-| -------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| [`@acme-design/tokens`](./packages/tokens)                     | DTCG token source and the build that turns it into CSS, JSON and TypeScript | [![npm](https://img.shields.io/npm/v/@acme-design/tokens)](https://www.npmjs.com/package/@acme-design/tokens)                     |
-| [`@acme-design/react`](./packages/react)                       | React components, precompiled to JavaScript and one stylesheet              | [![npm](https://img.shields.io/npm/v/@acme-design/react)](https://www.npmjs.com/package/@acme-design/react)                       |
-| [`@acme-design/eslint-config`](./packages/eslint-config)       | Keeps JSX on-system                                                         | [![npm](https://img.shields.io/npm/v/@acme-design/eslint-config)](https://www.npmjs.com/package/@acme-design/eslint-config)       |
-| [`@acme-design/stylelint-config`](./packages/stylelint-config) | Keeps CSS on-system                                                         | [![npm](https://img.shields.io/npm/v/@acme-design/stylelint-config)](https://www.npmjs.com/package/@acme-design/stylelint-config) |
-| [`@acme-design/figma-sync`](./packages/figma-sync)             | Syncs tokens with Figma; runs from the repo, not published                  | Private                                                                                                                           |
+| Package                                                         | What it is                                                                  | Version                                                                                                                             |
+| --------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| [`@acme-foundry/tokens`](./packages/tokens)                     | DTCG token source and the build that turns it into CSS, JSON and TypeScript | [![npm](https://img.shields.io/npm/v/@acme-foundry/tokens)](https://www.npmjs.com/package/@acme-foundry/tokens)                     |
+| [`@acme-foundry/react`](./packages/react)                       | React components, precompiled to JavaScript and one stylesheet              | [![npm](https://img.shields.io/npm/v/@acme-foundry/react)](https://www.npmjs.com/package/@acme-foundry/react)                       |
+| [`@acme-foundry/eslint-config`](./packages/eslint-config)       | Keeps JSX on-system                                                         | [![npm](https://img.shields.io/npm/v/@acme-foundry/eslint-config)](https://www.npmjs.com/package/@acme-foundry/eslint-config)       |
+| [`@acme-foundry/stylelint-config`](./packages/stylelint-config) | Keeps CSS on-system                                                         | [![npm](https://img.shields.io/npm/v/@acme-foundry/stylelint-config)](https://www.npmjs.com/package/@acme-foundry/stylelint-config) |
+| [`@acme-foundry/figma-sync`](./packages/figma-sync)             | Syncs tokens with Figma; runs from the repo, not published                  | Private                                                                                                                             |
 
 ### Bring your own headless library
 
-Acme Design's interactive components are built on native elements, such as `<dialog>` for `Modal`, but their props describe behaviour, never the element underneath. They use the names [Base UI](https://base-ui.com) and [Radix](https://www.radix-ui.com/primitives) use: `open`, `onOpenChange`, `value` and `onValueChange`. So a component can be rebuilt on either of them, or on [React Aria](https://react-aria.adobe.com) or [Headless UI](https://headlessui.com) by mapping their names inside the component. The component keeps its props and styles, the apps that use it don't change, and the rest of the pipeline is untouched.
+Acme Foundry's interactive components are built on native elements, such as `<dialog>` for `Modal`, but their props describe behaviour, never the element underneath. They use the names [Base UI](https://base-ui.com) and [Radix](https://www.radix-ui.com/primitives) use: `open`, `onOpenChange`, `value` and `onValueChange`. So a component can be rebuilt on either of them, or on [React Aria](https://react-aria.adobe.com) or [Headless UI](https://headlessui.com) by mapping their names inside the component. The component keeps its props and styles, the apps that use it don't change, and the rest of the pipeline is untouched.
 
 ## Development
 
@@ -68,7 +68,7 @@ pnpm build && pnpm lint && pnpm typecheck && pnpm test
 
 ## Reasoning
 
-Acme Design keeps the decision records it inherited, and numbers its own after them:
+Acme Foundry keeps the decision records it inherited, and numbers its own after them:
 
 - [Decision records](./docs/decisions): every architectural decision, as an ADR.
 - [Fossil's key decisions](https://fossil.ibrahimmoazzam.com/?path=/docs/architecture-key-decisions--docs): the decisions behind the pipeline, each with the alternative it rejected and why.
