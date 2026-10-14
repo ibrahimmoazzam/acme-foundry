@@ -1,1 +1,1 @@
-export { default } from '@fossil-design/stylelint-config';
+export { default } from '@acme-foundry/stylelint-config';

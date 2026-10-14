@@ -1,4 +1,4 @@
 .app {
-  background-color: var(--fossil-color-background-page);
-  color: var(--fossil-color-text-default);
+  background-color: var(--acme-color-background-page);
+  color: var(--acme-color-text-default);
 }

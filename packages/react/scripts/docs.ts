@@ -3,7 +3,7 @@
  * installed version. Everything comes from source: each component's JSDoc contract and props
  * through react-docgen-typescript, its examples from its stories tagged `example`, its variant
  * maps from the build, and the foundations and the token reference from the token build.
- * From the same sources it writes the block `fossil-agents-md` puts in an app's AGENTS.md, and
+ * From the same sources it writes the block `acme-agents-md` puts in an app's AGENTS.md, and
  * the Figma Make guidelines in guidelines/.
  *
  * It writes nothing and lists every problem if a component lacks part of its contract, a prop
@@ -19,7 +19,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { createRequire } from 'node:module';
-import { breakpoints } from '@fossil-design/tokens';
+import { breakpoints } from '@acme-foundry/tokens';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
@@ -82,7 +82,7 @@ export interface Inputs {
   root: string;
   /** The package's runtime exports. */
   exports: Record<string, unknown>;
-  /** The package name, such as `@fossil-design/react`. */
+  /** The package name, such as `@acme-foundry/react`. */
   packageName: string;
 }
 
@@ -852,7 +852,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     bin: Record<string, string>;
   };
   const config = JSON.parse(
-    readFileSync(join(root, '../../fossil.config.json'), 'utf8'),
+    readFileSync(join(root, '../../brand.config.json'), 'utf8'),
   ) as { name: string; cssPrefix: string; npmScope: string };
   const exports = (await import(
     pathToFileURL(join(root, 'dist/index.js')).href
@@ -871,7 +871,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 
   const header = `${pkg.name} ${pkg.version}, generated from its source. Matches the installed version.`;
   const tokensDist = dirname(
-    require.resolve('@fossil-design/tokens/tokens.json'),
+    require.resolve('@acme-foundry/tokens/tokens.json'),
   );
   const tokens = JSON.parse(
     readFileSync(join(tokensDist, 'tokens.json'), 'utf8'),

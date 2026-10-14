@@ -1,7 +1,7 @@
 {
-  "name": "@fossil-design/tokens",
+  "name": "@acme-foundry/tokens",
   "version": "0.6.1",
-  "description": "Design tokens for Fossil Design: DTCG source files and the Style Dictionary build that turns them into CSS, JSON and TypeScript.",
+  "description": "Design tokens for Acme Foundry: DTCG source files and the Style Dictionary build that turns them into CSS, JSON and TypeScript.",
   "keywords": [
     "design-system",
     "design-tokens",
@@ -9,13 +9,13 @@
     "style-dictionary",
     "css-custom-properties"
   ],
-  "homepage": "https://github.com/ibrahimmoazzam/fossil-design/tree/main/packages/tokens#readme",
-  "bugs": "https://github.com/ibrahimmoazzam/fossil-design/issues",
+  "homepage": "https://github.com/ibrahimmoazzam/acme-foundry/tree/main/packages/tokens#readme",
+  "bugs": "https://github.com/ibrahimmoazzam/acme-foundry/issues",
   "license": "MIT",
-  "author": "Ibrahim Moazzam (https://github.com/ibrahimmoazzam)",
+  "author": "Acme Corporation (https://github.com/ibrahimmoazzam/acme-foundry)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ibrahimmoazzam/fossil-design.git",
+    "url": "git+https://github.com/ibrahimmoazzam/acme-foundry.git",
     "directory": "packages/tokens"
   },
   "type": "module",

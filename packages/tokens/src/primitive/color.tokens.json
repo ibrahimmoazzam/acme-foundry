@@ -101,35 +101,35 @@
           }
         }
       },
-      "blue": {
+      "green": {
         "400": {
           "$value": {
             "colorSpace": "srgb",
-            "components": [0.4784, 0.6353, 1],
-            "hex": "#7aa2ff"
+            "components": [0.3725, 0.8157, 0.5412],
+            "hex": "#5fd08a"
           }
         },
         "600": {
           "$value": {
             "colorSpace": "srgb",
-            "components": [0.1059, 0.302, 1],
-            "hex": "#1b4dff"
+            "components": [0.0431, 0.4196, 0.2078],
+            "hex": "#0b6b35"
           }
         }
       },
-      "azure": {
+      "teal": {
         "100": {
           "$value": {
             "colorSpace": "srgb",
-            "components": [0.7765, 0.8549, 0.9255],
-            "hex": "#c6daec"
+            "components": [0.749, 0.8902, 0.8902],
+            "hex": "#bfe3e3"
           }
         },
         "600": {
           "$value": {
             "colorSpace": "srgb",
-            "components": [0.0392, 0.4353, 0.749],
-            "hex": "#0a6fbf"
+            "components": [0.051, 0.4314, 0.4314],
+            "hex": "#0d6e6e"
           }
         }
       },

@@ -9,16 +9,16 @@
 }
 
 .size-s {
-  inline-size: var(--fossil-icon-size-s);
-  block-size: var(--fossil-icon-size-s);
+  inline-size: var(--acme-icon-size-s);
+  block-size: var(--acme-icon-size-s);
 }
 
 .size-m {
-  inline-size: var(--fossil-icon-size-m);
-  block-size: var(--fossil-icon-size-m);
+  inline-size: var(--acme-icon-size-m);
+  block-size: var(--acme-icon-size-m);
 }
 
 .size-l {
-  inline-size: var(--fossil-icon-size-l);
-  block-size: var(--fossil-icon-size-l);
+  inline-size: var(--acme-icon-size-l);
+  block-size: var(--acme-icon-size-l);
 }

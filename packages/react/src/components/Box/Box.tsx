@@ -1,4 +1,4 @@
-import type { TokenKey } from '@fossil-design/tokens';
+import type { TokenKey } from '@acme-foundry/tokens';
 import {
   createElement,
   forwardRef,
@@ -58,7 +58,7 @@ export interface BoxOwnProps {
    * `gridTemplateColumns`, `aspectRatio` and `transform` only.
    */
   style?: BoxStyle;
-  /** Classes from the app's own stylesheet, added to Fossil's. */
+  /** Classes from the app's own stylesheet, added to Acme Foundry's. */
   className?: string;
 }
 

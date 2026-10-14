@@ -1,8 +1,8 @@
-# Fossil Design
+# Acme Foundry
 
-Fossil Design, or Fossil for short, is an open-source agentic design system: a design system built for AI agents to stay on-system from design to code. Tokens in git flow into CSS, typed React components, Figma variables and a generated Figma component library, with lint configs, agent docs and Figma Make guidelines that keep generated UI on-system. Teams adopt it by forking it as a template. The published `@fossil-design/*` packages are the reference brand, harvested from the author's portfolio site.
+Acme Foundry is Acme's product design system, built so that AI agents stay on-system from design to code. Tokens in git flow into CSS, typed React components, Figma variables and a generated Figma component library, with lint configs, agent docs and Figma Make guidelines that keep generated UI on-system. The published `@acme-foundry/*` packages are what Acme's apps install.
 
-The repo foundation, the token build, the Figma sync, `@fossil-design/react`, both lint configs, the Figma component library and the agent context layer are in place. The docs, the `AGENTS.md` block and the Figma Make guidelines are bundled in `@fossil-design/react`, and the Figma library is two published files, foundations and components. Phase 8, documentation and dogfooding, is next. Phase 7, drift measurement, is deferred to a later release, and `docs/drift-eval.md` holds its design. `docs/PRD.md` is the spec: phases, tasks and exit criteria. `docs/Learnings.md` holds the research and the reason behind each decision.
+Acme Foundry is built on [Fossil Design](https://github.com/ibrahimmoazzam/fossil-design) and keeps its pipeline: the token build, the Figma sync, the components, both lint configs, the Figma component library and the agent context layer. The docs, the `AGENTS.md` block and the Figma Make guidelines are bundled in `@acme-foundry/react`, and the Figma library is two published files, foundations and components. `docs/` holds the decisions inherited from Fossil, which explain why the system is shaped this way; Acme's own decision records are numbered after them.
 
 ## Commands
 
@@ -27,8 +27,8 @@ pnpm rename --name … --scope …   # rename a fork: name, CSS prefix, npm scop
 - The browser tests need Chromium once per machine: `pnpm --filter react exec playwright install chromium`.
 - Storybook: `pnpm --filter react storybook`, at `localhost:6006`. Its MCP server is at `localhost:6006/mcp`, and `.mcp.json` registers it for Claude Code.
 - The docs site is Storybook's static build, `pnpm --filter react build-storybook`, deployed to GitHub Pages from `main` at `fossil.ibrahimmoazzam.com`. Its pages are MDX in `packages/react/docs-site/`, and most show a repo file as it is, through `RepoDoc`; `docs-site/pages.ts` maps each file to its page. The site links the first mention of each known name in a section, from `docs-site/links.ts`: add a tool, package or file there to link it.
-- `pnpm --filter react docs` writes the docs bundled in `@fossil-design/react` from each component's JSDoc contract and its stories tagged `example`. From the same sources it writes the block the package's `fossil-agents-md` bin puts in an app's `AGENTS.md`, and the Figma Make guidelines in `guidelines/`. The package's build runs it last, and fails on an undocumented component or a block over 8 KB (ADRs 0016 and 0017). `packages/react/AGENTS.md` has the format.
-- `pnpm smoke [next|vite]` copies the apps in `smoke/` to a temporary folder, installs the packed tarballs with npm, then type-checks, lints, builds and checks what they render. Then it runs `fossil-agents-md` in each app and checks every installed file the block and the Make guidelines name. Last, it copies the off-system component in `smoke/off-system/` into each app and expects lint to reject every line of it. It needs the network. Set `FOSSIL_KEEP_SMOKE=1` to keep the folder.
+- `pnpm --filter react docs` writes the docs bundled in `@acme-foundry/react` from each component's JSDoc contract and its stories tagged `example`. From the same sources it writes the block the package's `acme-agents-md` bin puts in an app's `AGENTS.md`, and the Figma Make guidelines in `guidelines/`. The package's build runs it last, and fails on an undocumented component or a block over 8 KB (ADRs 0016 and 0017). `packages/react/AGENTS.md` has the format.
+- `pnpm smoke [next|vite]` copies the apps in `smoke/` to a temporary folder, installs the packed tarballs with npm, then type-checks, lints, builds and checks what they render. Then it runs `acme-agents-md` in each app and checks every installed file the block and the Make guidelines name. Last, it copies the off-system component in `smoke/off-system/` into each app and expects lint to reject every line of it. It needs the network. Set `FOSSIL_KEEP_SMOKE=1` to keep the folder.
 - `pnpm --filter react generate` writes `Box`'s CSS and the `.module.css.d.ts` types. The react package's `build` and `typecheck` run it first. Neither output is committed.
 - Check the token source without building: `pnpm --filter tokens validate`. Token files live in `packages/tokens/src/primitive/` and `src/semantic/`; ADR 0005 holds their rules.
 - The token build writes `tokens.css`, `tokens.json`, `lint.json`, `foundations.md` and `tokens.md` to `packages/tokens/dist/`, the TypeScript in `src/generated/`, and the foundations block in this file. Commit the block with the token change; CI fails if the build changes it. ADR 0006 covers each output, and ADR 0016 the two Markdown files.
@@ -55,13 +55,13 @@ Phase 0 pinned the tooling below; later phases pin the rest when they add it.
 ## Layout
 
 ```
-fossil.config.json     system name, CSS prefix, npm scope
+brand.config.json     system name, CSS prefix, npm scope
 packages/tokens        DTCG source and the Style Dictionary build
 packages/react         components (CSS Modules), stories, bundled agent docs, Make guidelines, the AGENTS.md bin
 packages/eslint-config, packages/stylelint-config
 packages/figma-sync    Figma sync and component library: core, scripts and checks (private)
 .claude/skills         the fossil-figma-sync skill
-tests/                 workspace-wide tests, such as package names against fossil.config.json
+tests/                 workspace-wide tests, such as package names against brand.config.json
 scripts/               workspace-wide scripts: the packed-tarball check and the smoke test
 smoke/                 consumer apps outside the workspace, built from the packed tarballs
 smoke/off-system       a deliberately off-system component that lint must reject
@@ -87,7 +87,7 @@ docs/drift-eval.md     the planned drift eval: method, harness, prior art
 
 - **Accessibility is non-negotiable.** Native elements first (`<button>`, `<a>`, `<dialog>`, native form controls); ARIA only for real gaps. Everything interactive is keyboard-operable, has a visible focus indicator and an accessible name. Respect `prefers-reduced-motion` and `prefers-color-scheme`. Meet WCAG 2.2 AA contrast.
 - **Small components.** Focused, replaceable, no locked-in abstractions.
-- **Tokens only.** Styles live in CSS Modules and use semantic tokens (`var(--fossil-…)`), never raw values or primitive tokens. If a value has no token, that's a gap to raise, not a one-off style.
+- **Tokens only.** Styles live in CSS Modules and use semantic tokens (`var(--acme-…)`), never raw values or primitive tokens. If a value has no token, that's a gap to raise, not a one-off style.
 - **No margins.** Space with padding and `gap`. `margin: 0` resets are fine.
 - **Mobile-first.** Base styles for mobile, `min-width` media queries only.
 - **Layout through `Box` and `Stack`.** No raw `<div>`, `<section>` or other element `Box` renders; ESLint rejects them.
@@ -136,24 +136,24 @@ export type ButtonTone = (typeof buttonVariants.tone)[number];
 ```css
 /* Button.module.css */
 .button {
-  gap: var(--fossil-space-xs);
-  border: var(--fossil-border-default);
-  border-radius: var(--fossil-radius-control);
-  font-family: var(--fossil-text-control-font-family);
-  font-size: var(--fossil-text-control-font-size);
-  font-weight: var(--fossil-text-control-font-weight);
-  letter-spacing: var(--fossil-text-control-letter-spacing);
-  line-height: var(--fossil-text-control-line-height);
+  gap: var(--acme-space-xs);
+  border: var(--acme-border-default);
+  border-radius: var(--acme-radius-control);
+  font-family: var(--acme-text-control-font-family);
+  font-size: var(--acme-text-control-font-size);
+  font-weight: var(--acme-text-control-font-weight);
+  letter-spacing: var(--acme-text-control-letter-spacing);
+  line-height: var(--acme-text-control-line-height);
 }
 
 .tone-secondary {
-  background-color: var(--fossil-color-background-surface);
-  color: var(--fossil-color-text-muted);
+  background-color: var(--acme-color-background-surface);
+  color: var(--acme-color-text-muted);
 }
 
 .size-m {
-  padding-block: var(--fossil-space-s);
-  padding-inline: var(--fossil-space-l);
+  padding-block: var(--acme-space-s);
+  padding-inline: var(--acme-space-l);
 }
 ```
 
@@ -163,7 +163,7 @@ export type ButtonTone = (typeof buttonVariants.tone)[number];
 
 ## Foundations
 
-Style with these semantic tokens, as `var(--fossil-…)`. Each one switches between light and dark by itself. Sizes are at a 16px root; the tokens are in rem. `packages/tokens/dist/tokens.json` describes every token.
+Style with these semantic tokens, as `var(--acme-…)`. Each one switches between light and dark by itself. Sizes are at a 16px root; the tokens are in rem. `packages/tokens/dist/tokens.json` describes every token.
 
 ### Spacing
 
@@ -171,14 +171,14 @@ For padding and `gap`. Never margin.
 
 | Token | Custom property | Size |
 | --- | --- | --- |
-| `space.2xs` | `--fossil-space-2xs` | 4px |
-| `space.xs` | `--fossil-space-xs` | 8px |
-| `space.s` | `--fossil-space-s` | 12px |
-| `space.m` | `--fossil-space-m` | 16px |
-| `space.l` | `--fossil-space-l` | 24px |
-| `space.xl` | `--fossil-space-xl` | 32px |
-| `space.2xl` | `--fossil-space-2xl` | 48px |
-| `space.3xl` | `--fossil-space-3xl` | 80px |
+| `space.2xs` | `--acme-space-2xs` | 4px |
+| `space.xs` | `--acme-space-xs` | 8px |
+| `space.s` | `--acme-space-s` | 12px |
+| `space.m` | `--acme-space-m` | 16px |
+| `space.l` | `--acme-space-l` | 24px |
+| `space.xl` | `--acme-space-xl` | 32px |
+| `space.2xl` | `--acme-space-2xl` | 48px |
+| `space.3xl` | `--acme-space-3xl` | 80px |
 
 ### Breakpoints
 
@@ -193,7 +193,7 @@ Mobile first: style for the smallest screen, then add `@media (min-width: …)` 
 
 ### Type
 
-Each text style is five custom properties. Set all five, and never the `font` shorthand, which drops letter-spacing: `--fossil-text-body-font-family`, `--fossil-text-body-font-size`, `--fossil-text-body-font-weight`, `--fossil-text-body-letter-spacing` and `--fossil-text-body-line-height`.
+Each text style is five custom properties. Set all five, and never the `font` shorthand, which drops letter-spacing: `--acme-text-body-font-family`, `--acme-text-body-font-size`, `--acme-text-body-font-weight`, `--acme-text-body-letter-spacing` and `--acme-text-body-line-height`.
 
 | Style | Font | Size | Weight | Line height | Letter spacing | Use |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -214,44 +214,44 @@ Each text style is five custom properties. Set all five, and never the `font` sh
 
 | Custom property | Use |
 | --- | --- |
-| `--fossil-color-background-transparent` | No fill: ghost controls and background resets. |
-| `--fossil-color-background-page` | The page ground. |
-| `--fossil-color-background-surface` | Cards, panels, popovers and other surfaces that sit on the page. |
-| `--fossil-color-background-sunken` | A fill set below the page, such as a tab track. |
-| `--fossil-color-background-raised` | A fill that comes back up from a sunken one, such as the selected tab. Never the only sign of selection. |
-| `--fossil-color-background-hover` | The wash behind a hovered row, pill or link. |
-| `--fossil-color-background-wash` | A tint that marks a row without filling it, such as a table header. |
-| `--fossil-color-background-scrim` | Behind a modal. |
-| `--fossil-color-background-veil` | A fill over images and video, such as a clip's play button. The same in both modes, because the footage is. |
-| `--fossil-color-text-default` | Body text. Contrast in light / dark: 17.59:1 / 18.16:1 on `color.background.page`, 19.15:1 / 17.36:1 on `color.background.surface`. Needs 4.5:1. |
-| `--fossil-color-text-muted` | Secondary text. Contrast in light / dark: 7.38:1 / 12.69:1 on `color.background.page`, 8.03:1 / 12.14:1 on `color.background.surface`. Needs 4.5:1. |
-| `--fossil-color-text-on-accent` | Text and icons on an accent fill. Contrast in light / dark: 5.91:1 / 7.69:1 on `color.accent.default`. Needs 4.5:1. |
-| `--fossil-color-text-on-highlight` | Text and icons on a highlight fill. Contrast in light / dark: 5.19:1 / 13.04:1 on `color.highlight.default`. Needs 4.5:1. |
-| `--fossil-color-text-on-veil` | Text and icons on the veil, in both modes. Contrast in light / dark: 5.74:1 / 5.74:1 on `color.background.veil`. Needs 4.5:1. |
-| `--fossil-color-border-default` | A quiet container edge, meant to sit against a fill. Too faint to stand alone as a line. |
-| `--fossil-color-border-strong` | A standalone rule or tick. Contrast in light / dark: 3.57:1 / 4.96:1 on `color.background.page`, 3.89:1 / 4.74:1 on `color.background.surface`. Needs 3:1. |
-| `--fossil-color-border-hover` | A control's edge on hover. Contrast in light / dark: 7.38:1 / 12.69:1 on `color.background.page`, 8.03:1 / 12.14:1 on `color.background.surface`. Needs 3:1. |
-| `--fossil-color-border-selected` | The edge of the current or selected item. Contrast in light / dark: 4.77:1 / 13.15:1 on `color.background.page`, 5.19:1 / 12.57:1 on `color.background.surface`. Needs 3:1. |
-| `--fossil-color-accent-default` | Links and primary actions. Contrast in light / dark: 5.42:1 / 7.76:1 on `color.background.page`, 5.91:1 / 7.42:1 on `color.background.surface`. Needs 4.5:1. |
-| `--fossil-color-highlight-default` | Small marks that should stand out: the current page, the caret, the selected tab. Contrast in light / dark: 4.77:1 / 13.15:1 on `color.background.page`, 5.19:1 / 12.57:1 on `color.background.surface`. Needs 4.5:1. |
-| `--fossil-color-focus-ring` | The focus indicator. Contrast in light / dark: 4.77:1 / 13.15:1 on `color.background.page`, 5.19:1 / 12.57:1 on `color.background.surface`. Needs 3:1. |
-| `--fossil-color-selection-background` | Selected text. The selected text itself takes highlight.default. |
-| `--fossil-color-shadow-default` | The colour of every shadow. |
+| `--acme-color-background-transparent` | No fill: ghost controls and background resets. |
+| `--acme-color-background-page` | The page ground. |
+| `--acme-color-background-surface` | Cards, panels, popovers and other surfaces that sit on the page. |
+| `--acme-color-background-sunken` | A fill set below the page, such as a tab track. |
+| `--acme-color-background-raised` | A fill that comes back up from a sunken one, such as the selected tab. Never the only sign of selection. |
+| `--acme-color-background-hover` | The wash behind a hovered row, pill or link. |
+| `--acme-color-background-wash` | A tint that marks a row without filling it, such as a table header. |
+| `--acme-color-background-scrim` | Behind a modal. |
+| `--acme-color-background-veil` | A fill over images and video, such as a clip's play button. The same in both modes, because the footage is. |
+| `--acme-color-text-default` | Body text. Contrast in light / dark: 17.59:1 / 18.16:1 on `color.background.page`, 19.15:1 / 17.36:1 on `color.background.surface`. Needs 4.5:1. |
+| `--acme-color-text-muted` | Secondary text. Contrast in light / dark: 7.38:1 / 12.69:1 on `color.background.page`, 8.03:1 / 12.14:1 on `color.background.surface`. Needs 4.5:1. |
+| `--acme-color-text-on-accent` | Text and icons on an accent fill. Contrast in light / dark: 6.62:1 / 9.92:1 on `color.accent.default`. Needs 4.5:1. |
+| `--acme-color-text-on-highlight` | Text and icons on a highlight fill. Contrast in light / dark: 6.04:1 / 13.04:1 on `color.highlight.default`. Needs 4.5:1. |
+| `--acme-color-text-on-veil` | Text and icons on the veil, in both modes. Contrast in light / dark: 5.74:1 / 5.74:1 on `color.background.veil`. Needs 4.5:1. |
+| `--acme-color-border-default` | A quiet container edge, meant to sit against a fill. Too faint to stand alone as a line. |
+| `--acme-color-border-strong` | A standalone rule or tick. Contrast in light / dark: 3.57:1 / 4.96:1 on `color.background.page`, 3.89:1 / 4.74:1 on `color.background.surface`. Needs 3:1. |
+| `--acme-color-border-hover` | A control's edge on hover. Contrast in light / dark: 7.38:1 / 12.69:1 on `color.background.page`, 8.03:1 / 12.14:1 on `color.background.surface`. Needs 3:1. |
+| `--acme-color-border-selected` | The edge of the current or selected item. Contrast in light / dark: 5.55:1 / 13.15:1 on `color.background.page`, 6.04:1 / 12.57:1 on `color.background.surface`. Needs 3:1. |
+| `--acme-color-accent-default` | Links and primary actions. Contrast in light / dark: 6.08:1 / 10.00:1 on `color.background.page`, 6.62:1 / 9.56:1 on `color.background.surface`. Needs 4.5:1. |
+| `--acme-color-highlight-default` | Small marks that should stand out: the current page, the caret, the selected tab. Contrast in light / dark: 5.55:1 / 13.15:1 on `color.background.page`, 6.04:1 / 12.57:1 on `color.background.surface`. Needs 4.5:1. |
+| `--acme-color-focus-ring` | The focus indicator. Contrast in light / dark: 5.55:1 / 13.15:1 on `color.background.page`, 6.04:1 / 12.57:1 on `color.background.surface`. Needs 3:1. |
+| `--acme-color-selection-background` | Selected text. The selected text itself takes highlight.default. |
+| `--acme-color-shadow-default` | The colour of every shadow. |
 
 ### Other semantic tokens
 
-- `border.width`: `--fossil-border-width-default`, `--fossil-border-width-hairline`
-- `border`: `--fossil-border-default`, `--fossil-border-strong`, `--fossil-border-hairline`, `--fossil-border-focus`
-- `focus.ring`: `--fossil-focus-ring-width`, `--fossil-focus-ring-offset`
-- `shadow`: `--fossil-shadow-raised`, `--fossil-shadow-floating`, `--fossil-shadow-overlay`
-- `layer`: `--fossil-layer-overlay`
-- `layout`: `--fossil-layout-measure`, `--fossil-layout-max-width`
-- `icon.size`: `--fossil-icon-size-s`, `--fossil-icon-size-m`, `--fossil-icon-size-l`
-- `motion.duration`: `--fossil-motion-duration-fast`, `--fossil-motion-duration-default`, `--fossil-motion-duration-slow`
-- `motion.easing`: `--fossil-motion-easing-standard`
-- `radius`: `--fossil-radius-compact`, `--fossil-radius-control`, `--fossil-radius-surface`, `--fossil-radius-pill`
-- `font.family`: `--fossil-font-family-heading`, `--fossil-font-family-body`, `--fossil-font-family-mono`
-- `font.weight`: `--fossil-font-weight-regular`, `--fossil-font-weight-emphasis`, `--fossil-font-weight-strong`
+- `border.width`: `--acme-border-width-default`, `--acme-border-width-hairline`
+- `border`: `--acme-border-default`, `--acme-border-strong`, `--acme-border-hairline`, `--acme-border-focus`
+- `focus.ring`: `--acme-focus-ring-width`, `--acme-focus-ring-offset`
+- `shadow`: `--acme-shadow-raised`, `--acme-shadow-floating`, `--acme-shadow-overlay`
+- `layer`: `--acme-layer-overlay`
+- `layout`: `--acme-layout-measure`, `--acme-layout-max-width`
+- `icon.size`: `--acme-icon-size-s`, `--acme-icon-size-m`, `--acme-icon-size-l`
+- `motion.duration`: `--acme-motion-duration-fast`, `--acme-motion-duration-default`, `--acme-motion-duration-slow`
+- `motion.easing`: `--acme-motion-easing-standard`
+- `radius`: `--acme-radius-compact`, `--acme-radius-control`, `--acme-radius-surface`, `--acme-radius-pill`
+- `font.family`: `--acme-font-family-heading`, `--acme-font-family-body`, `--acme-font-family-mono`
+- `font.weight`: `--acme-font-weight-regular`, `--acme-font-weight-emphasis`, `--acme-font-weight-strong`
 
 <!-- prettier-ignore-end -->
 <!-- fossil:foundations:end -->

@@ -7,7 +7,7 @@ import {
   resolveMode,
   type Mode,
 } from './theme.ts';
-import fossilConfig from '../../../fossil.config.json' with { type: 'json' };
+import fossilConfig from '../../../brand.config.json' with { type: 'json' };
 
 function setFrameProperties(mode: Mode) {
   for (const [name, value] of Object.entries(frameProperties(mode)))
@@ -19,8 +19,8 @@ setFrameProperties(resolveMode('system'));
 
 // Storybook names itself in every tab title, with no option to change it. The site follows
 // ibrahimmoazzam.com instead: "Page | Fossil Design", and the front page says what Fossil is.
-// A fork's pages take its name from fossil.config.json; the front page's title is its own to write.
-const homeTitle = 'Fossil Design: Open-Source Agentic Design System';
+// A fork's pages take its name from brand.config.json; the front page's title is its own to write.
+const homeTitle = 'Acme Foundry: Our Product Design System';
 
 function siteTitle(title: string): string {
   if (title === 'Storybook') return homeTitle;

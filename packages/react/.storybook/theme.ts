@@ -1,5 +1,5 @@
-import tokensFile from '@fossil-design/tokens/tokens.json';
-import fossilConfig from '../../../fossil.config.json' with { type: 'json' };
+import tokensFile from '@acme-foundry/tokens/tokens.json';
+import fossilConfig from '../../../brand.config.json' with { type: 'json' };
 import { create, type ThemeVars } from 'storybook/theming';
 import { githubMark, repo, version } from '../docs-site/repo.ts';
 
@@ -117,15 +117,15 @@ export function frameProperties(mode: Mode): Record<string, string> {
       ? label.letterSpacing.value * 16
       : label.letterSpacing.value;
   return {
-    '--fossil-color-highlight-default': color('color.highlight.default', mode),
-    '--fossil-color-text-on-highlight': color('color.text.on-highlight', mode),
-    '--fossil-color-border-strong': color('color.border.strong', mode),
-    '--fossil-text-label-font-family': label.fontFamily
+    '--acme-color-highlight-default': color('color.highlight.default', mode),
+    '--acme-color-text-on-highlight': color('color.text.on-highlight', mode),
+    '--acme-color-border-strong': color('color.border.strong', mode),
+    '--acme-text-label-font-family': label.fontFamily
       .map((f) => (f.includes(' ') ? `'${f}'` : f))
       .join(', '),
-    '--fossil-text-label-font-size': fontSize('text.label'),
-    '--fossil-text-label-font-weight': String(label.fontWeight),
-    '--fossil-text-label-letter-spacing': `${String(tracking)}px`,
+    '--acme-text-label-font-size': fontSize('text.label'),
+    '--acme-text-label-font-weight': String(label.fontWeight),
+    '--acme-text-label-letter-spacing': `${String(tracking)}px`,
   };
 }
 

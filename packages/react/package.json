@@ -1,7 +1,7 @@
 {
-  "name": "@fossil-design/react",
+  "name": "@acme-foundry/react",
   "version": "0.5.1",
-  "description": "React components for Fossil Design, styled only with design tokens and precompiled to plain JavaScript and one stylesheet.",
+  "description": "React components for Acme Foundry, styled only with design tokens and precompiled to plain JavaScript and one stylesheet.",
   "keywords": [
     "design-system",
     "react",
@@ -9,13 +9,13 @@
     "css-modules",
     "accessibility"
   ],
-  "homepage": "https://github.com/ibrahimmoazzam/fossil-design/tree/main/packages/react#readme",
-  "bugs": "https://github.com/ibrahimmoazzam/fossil-design/issues",
+  "homepage": "https://github.com/ibrahimmoazzam/acme-foundry/tree/main/packages/react#readme",
+  "bugs": "https://github.com/ibrahimmoazzam/acme-foundry/issues",
   "license": "MIT",
-  "author": "Ibrahim Moazzam (https://github.com/ibrahimmoazzam)",
+  "author": "Acme Corporation (https://github.com/ibrahimmoazzam/acme-foundry)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ibrahimmoazzam/fossil-design.git",
+    "url": "git+https://github.com/ibrahimmoazzam/acme-foundry.git",
     "directory": "packages/react"
   },
   "type": "module",
@@ -33,7 +33,7 @@
     "*.css"
   ],
   "bin": {
-    "fossil-agents-md": "./dist/bin/agents-md.js"
+    "acme-agents-md": "./dist/bin/agents-md.js"
   },
   "files": [
     "dist",
@@ -54,14 +54,14 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.20",
-    "@fossil-design/tokens": "workspace:^"
+    "@acme-foundry/tokens": "workspace:^"
   },
   "peerDependencies": {
     "react": "^18.3 || ^19",
     "react-dom": "^18.3 || ^19"
   },
   "devDependencies": {
-    "@fossil-design/stylelint-config": "workspace:*",
+    "@acme-foundry/stylelint-config": "workspace:*",
     "@material-symbols/svg-400": "^0.47.6",
     "@storybook/addon-a11y": "^10.6.1",
     "@storybook/addon-docs": "^10.6.1",
