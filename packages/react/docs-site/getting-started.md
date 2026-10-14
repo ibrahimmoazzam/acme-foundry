@@ -56,7 +56,7 @@ npm install --save-dev {{scope}}/eslint-config eslint {{scope}}/stylelint-config
 
 ```js
 // eslint.config.js
-import fossil from '{{scope}}/eslint-config';
+import brand from '{{scope}}/eslint-config';
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 

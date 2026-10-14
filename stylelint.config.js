@@ -1,10 +1,10 @@
-import { fossil } from '@acme-foundry/stylelint-config';
+import { brand } from '@acme-foundry/stylelint-config';
 
 /**
  * Fossil lints its own stylesheets with the config it publishes, so consumers get a tested path.
  * The files it skips are in .stylelintignore.
  * @type {import('stylelint').Config}
  */
-const config = fossil();
+const config = brand();
 
 export default config;

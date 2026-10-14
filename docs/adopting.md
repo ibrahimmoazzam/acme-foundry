@@ -4,7 +4,7 @@ This guide turns a copy of this repository into your team's own design system: y
 
 To use Fossil's own components as they are, with the reference brand, follow [Getting Started](../packages/react/docs-site/getting-started.md) instead. Adopting is for a team that wants its own brand, its own Figma files and designers' edits arriving as pull requests. [Key decisions](./key-decisions.md#11-a-template-rather-than-a-themeable-package) explains why that takes a copy rather than a package.
 
-The examples use a system called Acme Foundry, with the CSS prefix `acme`, the npm scope `@acme-foundry` and the repository `acme/acme-foundry`. Use your own.
+The examples use a system called Acme Design, with the CSS prefix `acme`, the npm scope `@acme-design` and the repository `acme/acme-design`. Use your own.
 
 ## What you need
 
@@ -33,13 +33,13 @@ Clone the copy, install, and rename it on a branch:
 ```sh
 pnpm install --frozen-lockfile
 git switch -c rename
-pnpm rename --name "Acme Foundry" --prefix acme --scope @acme-foundry --repo acme/acme-foundry
+pnpm rename --name "Acme Design" --prefix acme --scope @acme-design --repo acme/acme-design
 ```
 
-`fossil.config.json` holds the name, prefix and scope, and the token build, the class names and the agent docs read them from there. But package names, imports, stylesheets and repository URLs spell the old values out, so `pnpm rename` rewrites them too:
+`brand.config.json` holds the name, prefix and scope, and the token build, the class names and the agent docs read them from there. But package names, imports, stylesheets and repository URLs spell the old values out, so `pnpm rename` rewrites them too:
 
-- `@fossil-design` becomes your scope, in package names, dependencies, imports and pending changesets;
-- `--fossil-` becomes your prefix in every custom property, and `fossil-agents-md` becomes `acme-agents-md`;
+- `@acme-foundry` becomes your scope, in package names, dependencies, imports and pending changesets;
+- `--acme-` becomes your prefix in every custom property, and `fossil-agents-md` becomes `acme-agents-md`;
 - the repository becomes yours in every `repository`, `homepage` and `bugs` URL, which the gap form's link and npm's trusted publishing both read.
 
 It leaves `docs/` and the changelogs alone, because they record Fossil's history. It refuses to run with uncommitted changes, so the rename is a diff of its own. Then it updates `pnpm-lock.yaml` and formats what it changed. Check the result:
@@ -56,9 +56,9 @@ This lists what still says Fossil in prose:
 git grep -n Fossil -- . ':!docs' ':!**/CHANGELOG.md'
 ```
 
-Rewrite what describes your system: the README, the opening of `AGENTS.md`, each package's README and `description`, the docs site's front page (`packages/react/docs-site/Landing.tsx`) and its title (`homeTitle` in `.storybook/manager.ts`), the gap form, and the few component prop descriptions that say "Fossil's". The docs site's name, tab titles and Getting Started page already read `fossil.config.json`.
+Rewrite what describes your system: the README, the opening of `AGENTS.md`, each package's README and `description`, the docs site's front page (`packages/react/docs-site/Landing.tsx`) and its title (`homeTitle` in `.storybook/manager.ts`), the gap form, and the few component prop descriptions that say "Fossil's". The docs site's name, tab titles and Getting Started page already read `brand.config.json`.
 
-Some names stay, on purpose: the `fossil.config.json` file, the `fossil()` factory in both lint configs, the `fossil-figma-sync` skill, the `fossil` namespace the Figma sync stamps on variables, the token build's `fossil:foundations` markers in `AGENTS.md`, and the `com.ibrahimmoazzam.fossil` key in the token files. They name Fossil's tooling and formats, not your brand.
+Some names stay, on purpose: the `fossil` namespace the Figma sync stamps on variables, the `com.ibrahimmoazzam.fossil` key in the token files, the token build's `fossil:foundations` markers in `AGENTS.md`, and the `fossil-figma-sync` skill. The first two are written into your Figma file and your token files, so renaming them would be a migration rather than a rename, and a vendor key is meant to name the format's author. What isn't named after Fossil in the first place needs no thought: the brand lives in `brand.config.json`, and both lint configs export `brand()` ([ADR 0020](./decisions/0020-what-a-fork-renames.md)).
 
 ### 1.5 Make the rest yours
 
@@ -128,10 +128,10 @@ pnpm publishes in dependency order and replaces `workspace:` ranges with real ve
 **3A.4 Let the release workflow publish from now on,** by trusting it for each published package:
 
 ```sh
-npm trust github @acme-foundry/tokens --file release.yml --repository acme/acme-foundry --allow-publish
-npm trust github @acme-foundry/react --file release.yml --repository acme/acme-foundry --allow-publish
-npm trust github @acme-foundry/eslint-config --file release.yml --repository acme/acme-foundry --allow-publish
-npm trust github @acme-foundry/stylelint-config --file release.yml --repository acme/acme-foundry --allow-publish
+npm trust github @acme-design/tokens --file release.yml --repository acme/acme-design --allow-publish
+npm trust github @acme-design/react --file release.yml --repository acme/acme-design --allow-publish
+npm trust github @acme-design/eslint-config --file release.yml --repository acme/acme-design --allow-publish
+npm trust github @acme-design/stylelint-config --file release.yml --repository acme/acme-design --allow-publish
 ```
 
 **3A.5 Turn the Release workflow back on.** From now on, a pull request that changes a package adds a changeset (`pnpm changeset`). The workflow collects them into a "chore: version packages" pull request. Approve its workflow run, let the checks pass, and merge it to publish. [ADR 0003](./decisions/0003-release-pipeline.md) explains the pipeline.
@@ -152,13 +152,13 @@ packages:
 
 ```json
 "dependencies": {
-  "@acme-foundry/react": "workspace:*",
+  "@acme-design/react": "workspace:*",
   "react": "^19.3.0",
   "react-dom": "^19.3.0"
 },
 "devDependencies": {
-  "@acme-foundry/eslint-config": "workspace:*",
-  "@acme-foundry/stylelint-config": "workspace:*"
+  "@acme-design/eslint-config": "workspace:*",
+  "@acme-design/stylelint-config": "workspace:*"
 }
 ```
 
@@ -174,7 +174,7 @@ The Figma library is two files ([ADR 0018](./decisions/0018-figma-foundations-an
 
 **4.1 Connect Claude Code to Figma:** `claude plugin install figma@claude-plugins-official` installs the Figma MCP server and Figma's skills, and `/mcp` signs in.
 
-**4.2 Create two design files in a team project,** not in Drafts, because you'll publish both: `Acme Foundry Foundations` and `Acme Foundry Components`.
+**4.2 Create two design files in a team project,** not in Drafts, because you'll publish both: `Acme Design Foundations` and `Acme Design Components`.
 
 **4.3 Apply the variables.** From an up-to-date `main`, ask Claude Code to apply the tokens to Figma, and give it the foundations file's URL. It creates a `Primitives` and a `Semantic` collection, with light and dark modes. Applying a second time should change nothing.
 
@@ -192,16 +192,16 @@ From then on, a designer who changes a value in Figma asks Claude Code to bring 
 
 [Getting Started](../packages/react/docs-site/getting-started.md) covers the app itself, and on your docs site it shows your names. In short:
 
-**5.1** Install `@acme-foundry/react` (or depend on it with `workspace:*`), and import `@acme-foundry/react/style.css` once.
+**5.1** Install `@acme-design/react` (or depend on it with `workspace:*`), and import `@acme-design/react/style.css` once.
 
-**5.2** Add `@acme-foundry/eslint-config` and `@acme-foundry/stylelint-config`.
+**5.2** Add `@acme-design/eslint-config` and `@acme-design/stylelint-config`.
 
 **5.3** Run `npx acme-agents-md` to put your system's rules and component index in the app's `AGENTS.md`, and `npx acme-agents-md --check` in its CI.
 
-For Figma Make, with published packages: install `@acme-foundry/react` in the Make file, and make its `guidelines/Guidelines.md` one line:
+For Figma Make, with published packages: install `@acme-design/react` in the Make file, and make its `guidelines/Guidelines.md` one line:
 
 ```md
-Read node_modules/@acme-foundry/react/guidelines/Guidelines.md before writing any code, and follow it.
+Read node_modules/@acme-design/react/guidelines/Guidelines.md before writing any code, and follow it.
 ```
 
 ## 6. Publish the docs site

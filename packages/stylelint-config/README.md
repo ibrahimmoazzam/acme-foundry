@@ -36,9 +36,9 @@ An app with tokens of its own, such as a brand colour Acme Foundry doesn't have,
 
 ```js
 // stylelint.config.js
-import { fossil } from '@acme-foundry/stylelint-config';
+import { brand } from '@acme-foundry/stylelint-config';
 
-export default fossil({ siteTokens: ['src/styles/site-tokens.css'] });
+export default brand({ siteTokens: ['src/styles/site-tokens.css'] });
 ```
 
 Their custom properties count as known everywhere. Inside those files, and only there, a token may alias an Acme Foundry primitive or hold a raw value:

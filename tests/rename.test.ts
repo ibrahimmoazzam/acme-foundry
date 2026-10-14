@@ -58,9 +58,9 @@ describe('rename', () => {
   it('leaves what only looks like the old names', () => {
     for (const text of [
       // Names Fossil keeps: the config file, the vendor key, the lint configs' factory.
-      'fossil.config.json',
+      'brand.config.json',
       'com.ibrahimmoazzam.fossil',
-      "import { fossil } from '@acme-foundry/stylelint-config';",
+      "import { brand } from '@acme-foundry/stylelint-config';",
       // Longer names that start with the old ones.
       '@fossil-designer/react',
       'my-fossil-agents-md',
@@ -107,7 +107,7 @@ describe('repoOf', () => {
 });
 
 describe('patterns', () => {
-  it('accept what fossil.config.json accepts', () => {
+  it('accept what brand.config.json accepts', () => {
     expect(patterns.cssPrefix.test('acme')).toBe(true);
     expect(patterns.cssPrefix.test('Acme')).toBe(false);
     expect(patterns.npmScope.test('@acme-foundry')).toBe(true);

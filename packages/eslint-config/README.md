@@ -14,7 +14,7 @@ The config sets rules, not a parser. A TypeScript app already has one from `type
 
 ```js
 // eslint.config.js
-import fossil from '@acme-foundry/eslint-config';
+import brand from '@acme-foundry/eslint-config';
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
@@ -37,9 +37,9 @@ return (
 
 ```js
 // eslint.config.js
-import { fossil } from '@acme-foundry/eslint-config';
+import { brand } from '@acme-foundry/eslint-config';
 
-export default [...fossil({ layoutElements: 'warn', deprecations: true })];
+export default [...brand({ layoutElements: 'warn', deprecations: true })];
 ```
 
 - **`layoutElements`**: `'error'` (the default) or `'warn'`, for an app still moving onto Acme Foundry.
