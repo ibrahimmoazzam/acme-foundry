@@ -8,13 +8,13 @@
     "eslintconfig",
     "eslint-config"
   ],
-  "homepage": "https://github.com/ibrahimmoazzam/acme-design/tree/main/packages/eslint-config#readme",
-  "bugs": "https://github.com/ibrahimmoazzam/acme-design/issues",
+  "homepage": "https://github.com/ibrahimmoazzam/acme-foundry/tree/main/packages/eslint-config#readme",
+  "bugs": "https://github.com/ibrahimmoazzam/acme-foundry/issues",
   "license": "MIT",
-  "author": "Acme Corporation (https://github.com/ibrahimmoazzam/acme-design)",
+  "author": "Acme Corporation (https://github.com/ibrahimmoazzam/acme-foundry)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ibrahimmoazzam/acme-design.git",
+    "url": "git+https://github.com/ibrahimmoazzam/acme-foundry.git",
     "directory": "packages/eslint-config"
   },
   "type": "module",

@@ -13,7 +13,7 @@ A team adopts Fossil by copying the repository and renaming it ([`PRD.md`](../PR
 - `var(--fossil-…)` in every component stylesheet;
 - the repository URL in each `package.json`, which npm's trusted publishing checks and the gap form's link comes from.
 
-A dry run on 8 October 2026 renamed a copy to Acme Design (`acme`, `@acme-design`, `acme/acme-design`). Replacing the scope, the custom property prefix and the bin's name across 79 files, then running `pnpm install` and Prettier, gave a copy that built and linted. 15 tests still failed: some set the prefix `fossil` themselves, and one expected the `AGENTS.md` block's markers under Fossil's scope.
+A dry run on 8 October 2026 renamed a copy to Acme Foundry (`acme`, `@acme-foundry`, `acme/acme-foundry`). Replacing the scope, the custom property prefix and the bin's name across 79 files, then running `pnpm install` and Prettier, gave a copy that built and linted. 15 tests still failed: some set the prefix `fossil` themselves, and one expected the `AGENTS.md` block's markers under Fossil's scope.
 
 ## Options
 
@@ -24,7 +24,7 @@ A dry run on 8 October 2026 renamed a copy to Acme Design (`acme`, `@acme-design
 
 ## Decision
 
-Option 4. `pnpm rename --name "Acme Design" --prefix acme --scope @acme-design --repo acme/acme-design` (`scripts/rename.ts`):
+Option 4. `pnpm rename --name "Acme Foundry" --prefix acme --scope @acme-foundry --repo acme/acme-foundry` (`scripts/rename.ts`):
 
 - reads the old values from `fossil.config.json` and the repository URL in the root `package.json`;
 - refuses to run with uncommitted changes, so the rename is a diff of its own;

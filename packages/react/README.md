@@ -1,6 +1,6 @@
 # @acme-foundry/react
 
-React components for [Acme Foundry](https://github.com/ibrahimmoazzam/acme-design), Acme's product design system. Their props take token keys and variant names, never raw values, so code written with them stays on-system.
+React components for [Acme Foundry](https://github.com/ibrahimmoazzam/acme-foundry), Acme's product design system. Their props take token keys and variant names, never raw values, so code written with them stays on-system.
 
 > **Early release.** Versions `0.x` may change component APIs between minor versions while the library is built out. The release notes list each change.
 

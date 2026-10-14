@@ -1,6 +1,6 @@
 # @acme-foundry/tokens
 
-Design tokens for [Acme Foundry](https://github.com/ibrahimmoazzam/acme-design), Acme's product design system: CSS custom properties for light and dark mode, metadata for tools and agents, and typed keys for component props.
+Design tokens for [Acme Foundry](https://github.com/ibrahimmoazzam/acme-foundry), Acme's product design system: CSS custom properties for light and dark mode, metadata for tools and agents, and typed keys for component props.
 
 > **Early release.** Versions `0.x` may rename tokens between minor versions while the taxonomy settles. Renames keep a deprecated alias first, and the release notes list each one.
 
@@ -66,7 +66,7 @@ The JSON files come typed: `import tokens from '@acme-foundry/tokens/tokens.json
 | `@acme-foundry/tokens/lint.json`   | The primitive and deprecated custom properties, for `@acme-foundry/stylelint-config`                                              |
 | `@acme-foundry/tokens`             | `tokenKeys`, `breakpoints` and `mediaQueries`, and the types `TokenKey`, `TokenGroup`, `Breakpoint`, `TokensFile` and `LintLists` |
 
-The token source is DTCG 2025.10 JSON in the [repository](https://github.com/ibrahimmoazzam/acme-design/tree/main/packages/tokens/src), built with Style Dictionary.
+The token source is DTCG 2025.10 JSON in the [repository](https://github.com/ibrahimmoazzam/acme-foundry/tree/main/packages/tokens/src), built with Style Dictionary.
 
 ## License
 

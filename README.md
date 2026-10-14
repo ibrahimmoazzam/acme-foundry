@@ -1,10 +1,10 @@
 # Acme Foundry
 
-[![CI](https://github.com/ibrahimmoazzam/acme-design/actions/workflows/ci.yml/badge.svg)](https://github.com/ibrahimmoazzam/acme-design/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/@acme-foundry/react?label=%40acme-design%2Freact)](https://www.npmjs.com/package/@acme-foundry/react) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
+[![CI](https://github.com/ibrahimmoazzam/acme-foundry/actions/workflows/ci.yml/badge.svg)](https://github.com/ibrahimmoazzam/acme-foundry/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/@acme-foundry/react?label=%40acme-foundry%2Freact)](https://www.npmjs.com/package/@acme-foundry/react) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
 Acme's product design system, built so that AI agents stay on-system from design to code. Tokens live in git and flow into CSS, typed React components, Figma variables and a Figma component library generated from code. Shared lint configs, docs bundled into the packages and guidelines for Figma Make keep what coding agents and Make generate on-system.
 
-**Docs: [ibrahimmoazzam.github.io/acme-design](https://ibrahimmoazzam.github.io/acme-design/)**, with a [getting started guide](https://ibrahimmoazzam.github.io/acme-design/?path=/docs/getting-started--docs), every component's props, variants and examples, and the [foundations](https://ibrahimmoazzam.github.io/acme-design/?path=/docs/foundations-overview--docs).
+**Docs: [ibrahimmoazzam.github.io/acme-foundry](https://ibrahimmoazzam.github.io/acme-foundry/)**, with a [getting started guide](https://ibrahimmoazzam.github.io/acme-foundry/?path=/docs/getting-started--docs), every component's props, variants and examples, and the [foundations](https://ibrahimmoazzam.github.io/acme-foundry/?path=/docs/foundations-overview--docs).
 
 > **Status: early.** The packages are on npm as `0.x`. The token build, the Figma sync, the components, both lint configs and the agent docs are in place.
 

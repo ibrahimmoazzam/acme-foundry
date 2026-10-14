@@ -646,7 +646,7 @@ Building the bundled docs settled these, each checked against the installed vers
 
 ### The adoption dry run (October 2026)
 
-Before writing the adoption guide, a copy of the repository was renamed to Acme Design (`acme`, `@acme-design`, `acme/acme-design`) on 8 October 2026 and taken through each step that runs outside Figma and npm ([ADR 0019](decisions/0019-renaming-a-fork.md)):
+Before writing the adoption guide, a copy of the repository was renamed to Acme Foundry (`acme`, `@acme-foundry`, `acme/acme-foundry`) on 8 October 2026 and taken through each step that runs outside Figma and npm ([ADR 0019](decisions/0019-renaming-a-fork.md)):
 
 - **`fossil.config.json` alone renames little.** The token build, the class names and the generated docs read it. Package names, imports, every component stylesheet's `var(--fossil-…)`, the lint configs' imports, the smoke-test apps and the repository URLs spell the values out: 79 files in all.
 - **Three replacements and a reinstall nearly suffice.** Replacing the scope, the custom property prefix and the bin's name, then running `pnpm install` and Prettier, gave a copy that built and linted. 15 tests failed, because they set the prefix `fossil` themselves or expected the `AGENTS.md` markers under Fossil's scope. With those reading the config, the copy renamed by `pnpm rename` passed `pnpm build`, `pnpm lint`, `pnpm typecheck`, all 383 tests, `pnpm check:packages` and `pnpm smoke`, and a build afterwards changed no committed file.

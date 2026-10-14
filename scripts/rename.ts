@@ -145,7 +145,7 @@ function main() {
   if (problems.length > 0) {
     console.error(problems.join('\n'));
     console.error(
-      'Usage: pnpm rename --name "Acme Design" --prefix acme --scope @acme-foundry --repo acme/acme-design',
+      'Usage: pnpm rename --name "Acme Foundry" --prefix acme --scope @acme-foundry --repo acme/acme-foundry',
     );
     process.exit(1);
   }

@@ -1,6 +1,6 @@
 # @acme-foundry/eslint-config
 
-The shared ESLint config for [Acme Foundry](https://github.com/ibrahimmoazzam/acme-design), Acme's product design system. It keeps JSX on-system: layout goes through `Box`, and every disable comment says why. Its partner, [`@acme-foundry/stylelint-config`](https://www.npmjs.com/package/@acme-foundry/stylelint-config), does the same for stylesheets.
+The shared ESLint config for [Acme Foundry](https://github.com/ibrahimmoazzam/acme-foundry), Acme's product design system. It keeps JSX on-system: layout goes through `Box`, and every disable comment says why. Its partner, [`@acme-foundry/stylelint-config`](https://www.npmjs.com/package/@acme-foundry/stylelint-config), does the same for stylesheets.
 
 > **Early release.** Versions `0.x` may tighten rules between minor versions. The release notes list each change.
 
@@ -62,7 +62,7 @@ Acme Foundry has three levels of escape, so deviation stays visible rather than 
 
 1. **Sanctioned:** `Box`'s narrow `style` prop, for layout tokens can't express, such as `gridTemplateAreas` or `aspectRatio`. No comment needed.
 2. **Logged:** a disable comment with a reason, like the one above. A margin other than `0` always needs one.
-3. **Signal:** three disables for the same need suggest something Acme Foundry is missing. Open a [gap](https://github.com/ibrahimmoazzam/acme-design/issues/new?template=gap.yml) on the Acme Foundry repository.
+3. **Signal:** three disables for the same need suggest something Acme Foundry is missing. Open a [gap](https://github.com/ibrahimmoazzam/acme-foundry/issues/new?template=gap.yml) on the Acme Foundry repository.
 
 ## License
 
