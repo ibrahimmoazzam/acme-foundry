@@ -1,78 +1,38 @@
 # Acme Foundry
 
-[![CI](https://github.com/ibrahimmoazzam/acme-foundry/actions/workflows/ci.yml/badge.svg)](https://github.com/ibrahimmoazzam/acme-foundry/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/@acme-foundry/react?label=%40acme-foundry%2Freact)](https://www.npmjs.com/package/@acme-foundry/react) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
+> **Archived test artifact.** This is not a product, it is not maintained, and it is not a design system to install. It is a copy of [Fossil Design](https://github.com/ibrahimmoazzam/fossil-design) made to test whether Fossil's adoption guide can actually be followed, kept read-only as the record of that test.
 
-Acme's product design system, built so that AI agents stay on-system from design to code. Tokens live in git and flow into CSS, typed React components, Figma variables and a Figma component library generated from code. Shared lint configs, docs bundled into the packages and guidelines for Figma Make keep what coding agents and Make generate on-system.
+## What this is
 
-**Docs: [ibrahimmoazzam.github.io/acme-foundry](https://ibrahimmoazzam.github.io/acme-foundry/)**, with a [getting started guide](https://ibrahimmoazzam.github.io/acme-foundry/?path=/docs/getting-started--docs), every component's props, variants and examples, and the [foundations](https://ibrahimmoazzam.github.io/acme-foundry/?path=/docs/foundations-overview--docs).
+On 12 October 2026 this repository was created from Fossil Design's template at commit `5305359` and renamed to Acme Foundry, with the CSS prefix `acme`, the npm scope `@acme-foundry` and this repository's own name. It was then taken through [Fossil's adoption guide](https://github.com/ibrahimmoazzam/fossil-design/blob/main/docs/adopting.md) the way a team adopting the system would: rename the copy, replace the brand's tokens, publish the packages under its own scope, apply the tokens to Figma and build the Figma component library from code.
 
-> **Status: early.** The packages are on npm as `0.x`. The token build, the Figma sync, the components, both lint configs and the agent docs are in place.
+The guide is the one part of Fossil with no automated check behind it. Nothing reads it and does what it says, so this copy did, once, and wrote down what it cost.
 
-Acme Foundry is built on [Fossil Design](https://github.com/ibrahimmoazzam/fossil-design), whose pipeline, components and tooling it keeps. Fossil's [reasoning](https://fossil.ibrahimmoazzam.com/?path=/docs/architecture-key-decisions--docs) explains why the system is shaped this way; this repository holds Acme's brand, tokens and components.
+## What it found
 
-## Why
+Thirty-two issues, each one recorded with its evidence and what fixing it took, in [`docs/fork-test.md`](https://github.com/ibrahimmoazzam/fossil-design/blob/main/docs/fork-test.md) upstream. A few examples of the kind of thing a real adoption turns up:
 
-Coding agents produce off-system UI in two different ways, and most design systems only address one of them.
+- The rename missed the npm badge, because the badge spells the scope percent-encoded.
+- Two token descriptions named Fossil's own typefaces, and travelled into this copy's Figma file, where a designer reads them.
+- Three of the four packages published and one did not, leaving a component package depending on a version of the token package that did not exist. The guide's publish step had no check that would have shown it.
+- The guide sent you to Figma's Assets panel to turn a library on, which is not where the switch is.
 
-1. **The agent doesn't know what exists,** so it invents. The fix is context: token and component metadata the agent can read.
-2. **The agent knows and drifts anyway.** Its training pulls harder than your documentation, so it writes `bg-gray-100` with your tokens in plain view. The fix is constraint: make off-system values impossible to express.
+## What has been retired
 
-Acme Foundry does both. The usual approach is to allow any CSS and lint it afterwards. Acme Foundry closes the surface instead: layout props accept only token keys, styles accept only semantic tokens, and lint covers what remains.
+The four `@acme-foundry` packages have been unpublished from npm, the two Figma files have been deleted, the npm organisation has been removed, and the docs site at `ibrahimmoazzam.github.io/acme-foundry` is no longer deployed. The repository is archived, so nothing here builds, publishes or deploys any more.
 
-## How it works
+## What is still here
 
-```
-Design tokens (DTCG JSON in git, reviewed in pull requests)
- ├─▶ Figma Variables            values round-trip through the Figma MCP server
- └─▶ Style Dictionary build     one validated run
-      ├─▶ tokens.css, tokens.json, tokens.ts
-      └─▶ React components      CSS Modules, props typed to token keys
-           ├─▶ npm packages, with Markdown docs for agents
-           └─▶ Figma component library, generated from code
-```
+The renamed tree as it stood at `f58eda8`, over 17 commits. That tree is the evidence behind several of the issues above, which is the reason to keep it rather than delete it.
 
-| Layer        | What Acme Foundry does                                                                                                                       |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Context      | An always-on `AGENTS.md` block, component docs bundled in the installed package, guidelines for Figma Make, Figma variables with code syntax |
-| Constraint   | `Box` props typed to tokens, a Stylelint config that allows only semantic tokens, an ESLint rule against raw `<div>`s                        |
-| Verification | Token build validation, interaction and accessibility tests, a check that the Figma library matches the code                                 |
+## A note on the prose in these files
 
-Accessibility is tested, not assumed. Every Storybook story runs axe and must have zero violations. Real-input browser tests cover keyboard, focus and native behaviour, such as Escape closing `Modal`'s `<dialog>`. The token tests fail if a colour misses the WCAG 2.2 AA contrast minimum it declares, in light or dark mode.
+A rename rewrites the names things are addressed by. It does not rewrite claims. So files in this repository say Acme Foundry where they described Fossil, including positioning, market research and a line about packages "harvested from the author's portfolio site" that was true of Fossil and is not true of anything called Acme Foundry. That is not a claim this copy makes. It is one of the things the test measured, and the reason the guide now has a step that asks an adopter to settle each inherited claim by hand.
 
-Everything runs on a Figma Professional or Education plan and free tiers elsewhere: no Code Connect, no Variables REST API.
+## Where to go instead
 
-## Packages
+- **Fossil Design:** [the repository](https://github.com/ibrahimmoazzam/fossil-design) and [the docs site](https://fossil.ibrahimmoazzam.com).
+- **The packages:** [`@fossil-design/react`](https://www.npmjs.com/package/@fossil-design/react), [`@fossil-design/tokens`](https://www.npmjs.com/package/@fossil-design/tokens), [`@fossil-design/eslint-config`](https://www.npmjs.com/package/@fossil-design/eslint-config), [`@fossil-design/stylelint-config`](https://www.npmjs.com/package/@fossil-design/stylelint-config).
+- **To build your own system from it:** [the adoption guide](https://github.com/ibrahimmoazzam/fossil-design/blob/main/docs/adopting.md), which these 32 issues were spent on.
 
-| Package                                                         | What it is                                                                  | Version                                                                                                                             |
-| --------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| [`@acme-foundry/tokens`](./packages/tokens)                     | DTCG token source and the build that turns it into CSS, JSON and TypeScript | [![npm](https://img.shields.io/npm/v/@acme-foundry/tokens)](https://www.npmjs.com/package/@acme-foundry/tokens)                     |
-| [`@acme-foundry/react`](./packages/react)                       | React components, precompiled to JavaScript and one stylesheet              | [![npm](https://img.shields.io/npm/v/@acme-foundry/react)](https://www.npmjs.com/package/@acme-foundry/react)                       |
-| [`@acme-foundry/eslint-config`](./packages/eslint-config)       | Keeps JSX on-system                                                         | [![npm](https://img.shields.io/npm/v/@acme-foundry/eslint-config)](https://www.npmjs.com/package/@acme-foundry/eslint-config)       |
-| [`@acme-foundry/stylelint-config`](./packages/stylelint-config) | Keeps CSS on-system                                                         | [![npm](https://img.shields.io/npm/v/@acme-foundry/stylelint-config)](https://www.npmjs.com/package/@acme-foundry/stylelint-config) |
-| [`@acme-foundry/figma-sync`](./packages/figma-sync)             | Syncs tokens with Figma; runs from the repo, not published                  | Private                                                                                                                             |
-
-### Bring your own headless library
-
-Acme Foundry's interactive components are built on native elements, such as `<dialog>` for `Modal`, but their props describe behaviour, never the element underneath. They use the names [Base UI](https://base-ui.com) and [Radix](https://www.radix-ui.com/primitives) use: `open`, `onOpenChange`, `value` and `onValueChange`. So a component can be rebuilt on either of them, or on [React Aria](https://react-aria.adobe.com) or [Headless UI](https://headlessui.com) by mapping their names inside the component. The component keeps its props and styles, the apps that use it don't change, and the rest of the pipeline is untouched.
-
-## Development
-
-You need Node 22.14 or later and pnpm 12.8.1, the version pinned in [`package.json`](./package.json).
-
-```sh
-pnpm install --frozen-lockfile
-pnpm build && pnpm lint && pnpm typecheck && pnpm test
-```
-
-[`AGENTS.md`](./AGENTS.md) lists every command and the rules for contributing, for people and coding agents alike.
-
-## Reasoning
-
-Acme Foundry keeps the decision records it inherited, and numbers its own after them:
-
-- [Decision records](./docs/decisions): every architectural decision, as an ADR.
-- [Fossil's key decisions](https://fossil.ibrahimmoazzam.com/?path=/docs/architecture-key-decisions--docs): the decisions behind the pipeline, each with the alternative it rejected and why.
-
-## License
-
-MIT © 2026 Acme Corporation. Portions © 2026 Ibrahim Moazzam. See [LICENSE](./LICENSE).
+MIT licensed, keeping Fossil Design's copyright notice. See [`LICENSE`](./LICENSE).
